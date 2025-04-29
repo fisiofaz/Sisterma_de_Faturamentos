@@ -1,0 +1,18 @@
+{
+  "name": "projeto_sistema_faturamentos",
+  "version": "1.0.0",
+  "description": "Este projeto tem como objetivo criar um sistema simples para gerenciamento diário do faturamento de vendas de 3 lojas que vendem produtos: **Ortopédicos**, **Hospitalares**, e **Fisioterapia**.  \r O sistema será desenvolvido com as tecnologias **Node.js**, **Express**, **MySQL**, **HTML**, **CSS**, e **JavaScript puro**, com crescimento gradual e melhorias ao longo do tempo.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mysql2": "^3.14.1"
+  }
+}
