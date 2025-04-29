@@ -1,0 +1,9 @@
+# Node.js
+node_modules/
+
+# Banco de dados local
+/database/*.db
+
+# Sistema
+.DS_Store
+Thumbs.db
