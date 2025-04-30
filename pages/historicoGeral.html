@@ -12,7 +12,24 @@
   </header>
 
   <main>
-    <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
+    <div class="filtros">
+      <div class="filtros-container">
+        <label for="filtro-loja">Loja:</label>
+        <select id="filtro-loja">
+        <option value="todas">Todas</option>
+        <option value="faturamento_ortofisius">Ortofisi’us</option>
+        <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
+        <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
+        </select>  
+        <label for="filtro-data">Data:</label>
+        <input type="date" id="filtro-data">
+        <button onclick="filtrar()">Filtrar</button>
+        <button onclick="limparFiltros()">Limpar</button>
+      </div>
+      <div class="imprimir">
+        <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
+      </div>      
+    </div>
     <table>
       <thead>
         <tr>
