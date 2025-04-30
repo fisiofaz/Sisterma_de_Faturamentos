@@ -1,36 +1,91 @@
-# Sistema de Faturamento de Lojas
+# 🧾 Sistema de Faturamento de Lojas
 
-Este projeto tem como objetivo criar um sistema simples para gerenciamento diário do faturamento de vendas de 3 lojas que vendem produtos: **Ortopédicos**, **Hospitalares**, e **Fisioterapia**.  
-O sistema será desenvolvido com as tecnologias **Node.js**, **Express**, **MySQL**, **HTML**, **CSS**, e **JavaScript puro**, com crescimento gradual e melhorias ao longo do tempo.  
+Projeto em desenvolvimento para gerenciamento diário de faturamento de três lojas físicas: a matriz **Ortofisi'us**, e as filiais **Fisiomed Centro** e **Fisiomed Camobi**.
 
-## Estrutura do Projeto
-1. Backend: Node.js com Express
-2. Banco de Dados: MySQL
-3. Frontend: HTML, CSS e JavaScript
-4. Funcionalidades básicas:
-   - Registro diário de faturamento de cada Loja
-   - Listagem e histórico de faturamento de cada Loja
-   - Exportação de dados (PDF/CSV)
-   - Impressão de relatórios de cada Loja
+## 🚀 Objetivo do Projeto
 
-## Funcionalidades Futuras
-- Gráficos de vendas
-- Relatórios detalhados por loja/produto
+Criar um sistema simples e funcional onde o faturamento de cada loja seja registrado diariamente, com possibilidade de:
+- Visualizar o histórico de faturamento
+- Imprimir relatórios
+- Evoluir o sistema com novos recursos e tecnologias
+
+Este projeto será incrementado continuamente e faz parte do meu portfólio de estudos Full Stack.
+
+## 🛠 Tecnologias utilizadas (etapa atual)
+
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- LocalStorage (armazenamento local)
+- Visual Studio Code
+- Git e GitHub
+
+## 🗂 Estrutura Inicial do Projeto
+
+```bash
+faturamento-lojas/
+├── lojas/
+│   ├── ortofisius.html
+│   ├── fisiomed-centro.html
+│   ├── fisiomed-camobi.html
+├── historico.html
+├── css/
+│   └── style.css
+├── js/
+│   ├── main.js
+│   ├── ortofisius.js
+│   ├── fisiomed-centro.js
+│   ├── fisiomed-camobi.js
+├── README.md
+├── .gitignore
+└── index.html
+```
+
+## 📌 Funcionalidades da primeira etapa
+ 
+ - Página da loja Ortofisi'us
+
+ - Cadastro de faturamento com data e valor
+
+ - Exibição de histórico na tela
+
+ - Armazenamento local (temporário)
+
+ - Estrutura básica para as demais lojas
+
+## 📈 Funcionalidades futuras
+
+- Impressão de relatórios
+
+- Histórico geral por loja
+
+- Filtros por período
+
+- Backend com Node.js + Banco de Dados
+
 - Autenticação de usuário
 
-## Como Executar o Projeto
-1. **Instalar dependências**: `npm install`
-2. **Configurar o banco de dados**:`MySQL`
-3. **Rodar o servidor**: `node server.js`
+- Deploy
 
----
+## 💻 Como executar o projeto
 
-### Como Subir o Projeto para o GitHub
-Após cada etapa concluída, vamos:
-1. Inicializar o repositório: `git init`
-2. Adicionar os arquivos: `git add .`
-3. Commitar mudanças: `git commit -m "Descrição clara da etapa concluída"`
-4. Subir para o GitHub:  
-   ```bash
-   git remote add origin <URL_DO_REPOSITÓRIO>
-   git push -u origin main
+1. Clone este repositório:
+
+```
+git clone https://github.com/seuusuario/faturamento-lojas.git
+```
+
+2. Acesse o projeto no VSCode:
+
+```
+cd faturamento-lojas
+code .
+```
+
+3. Abra `index.html` ou `lojas/ortofisius.html` em seu navegador
+
+## 📅 Atualizações e Versões
+
+v0.1 – Estrutura inicial + Página Ortofisi'us (Em andamento)
+
+Desenvolvido com dedicação por Fábio André Zatta 🚀
