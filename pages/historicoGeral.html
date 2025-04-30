@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Histórico Geral de Faturamentos</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
@@ -12,6 +13,8 @@
   </header>
 
   <main>
+    <h2>Filtros</h2>
+    <p>Selecione os filtros desejados para visualizar o histórico de faturamentos.</p>
     <div class="filtros">
       <div class="filtros-container">
         <label for="filtro-loja">Loja:</label>
@@ -40,6 +43,8 @@
       </thead>
       <tbody id="tabela-geral"></tbody>
     </table>
+    <h2>Gráfico Comparativo de Faturamento</h2>
+    <canvas id="graficoFaturamento" width="600" height="300"></canvas>
   </main>
 
   <script src="../js/historicoGeral.js"></script>
