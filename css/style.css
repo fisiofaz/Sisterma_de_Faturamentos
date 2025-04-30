@@ -1,19 +1,122 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 0;
-    background-color: #f4f4f4;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #f6f9fc;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
+body.dark {
+    background-color: #121212;
+    color: #eee;
+}
+  
+body.dark header,
+body.dark footer {
+    background-color: #0b0b0b;
+    color: #eee;
+}
+  
+body.dark .btn {
+    background-color: #333;
+    color: #fff;
+}
+  
+#toggle-theme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+}
+  
+
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #1d3557;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+  
   
 header {
     background-color: #00796b;
     color: #fff;
-    padding: 10px;
+    padding: 2rem;
     text-align: center;
-    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+header p {
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+
+main {
+    padding: 0 2rem;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    flex: 1;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #a8dadc;
+    color: #1d3557;
+    padding: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
   
+.loja-1 { background-color: #f8c291; } /* Ortofisi’us */
+.loja-2 { background-color: #b8e994; } /* Fisiomed Centro */
+.loja-3 { background-color: #82ccdd; } /* Fisiomed Camobi */
+.historico { background-color: #f7d794; }
+
 form {
     margin-top: 20px;
     background: #fff;
@@ -96,6 +199,14 @@ th, td {
     border-radius: 4px;
     border: 1px solid #ccc;
 }
+
+footer {
+    background-color: #1d3557;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
   
   
 /* Estilo para impressão */

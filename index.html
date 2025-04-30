@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema de Faturamento</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <script src="https://kit.fontawesome.com/a2d9eaaa63.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+      
+    <header>
+        <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
+        <h1>Sistema de Faturamento</h1>
+        <p>Gerencie os registros das lojas</p>
+    </header>
+
+    <main class="menu-container">
+        <a href="./pages/lojas/ortofisius.html" class="btn loja-1">
+            <i class="fas fa-notes-medical"></i>
+            Ortofisi’us
+        </a>
+        <a href="./pages/lojas/fisiomedCentro.html" class="btn loja-2">
+            <i class="fas fa-clinic-medical"></i>
+            Fisiomed Centro
+        </a>
+        <a href="./pages/lojas/fisiomedCamobi.html" class="btn loja-3">
+            <i class="fas fa-hospital-user"></i>
+            Fisiomed Camobi
+        </a>
+            <a href="./pages/historicoGeral.html" class="btn historico">
+            <i class="fas fa-chart-line"></i>
+            Histórico Geral
+        </a>
+    </main>
+
+    <footer>
+        <p>© 2025 Sistema de Faturamento - Projeto de Fábio André Zatta</p>
+    </footer>
+    <script>
+        window.addEventListener("load", () => {
+          document.getElementById("preloader").style.display = "none";
+        });
+        
+        const toggleThemeBtn = document.getElementById("toggle-theme");
+        toggleThemeBtn.addEventListener("click", () => {
+          document.body.classList.toggle("dark");
+        });
+    </script>
+      
+</body>
+</html>
