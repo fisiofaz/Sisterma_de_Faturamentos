@@ -6,47 +6,66 @@
   <title>Histórico Geral de Faturamentos</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
   <header>
+    <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
     <h1>Histórico Geral de Faturamentos</h1>
+    <p>Visualize o histórico de faturamentos das lojas</p>
   </header>
 
   <main>
-    <h2>Filtros</h2>
-    <p>Selecione os filtros desejados para visualizar o histórico de faturamentos.</p>
-    <div class="filtros">
-      <div class="filtros-container">
-        <label for="filtro-loja">Loja:</label>
-        <select id="filtro-loja">
-        <option value="todas">Todas</option>
-        <option value="faturamento_ortofisius">Ortofisi’us</option>
-        <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
-        <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
-        </select>  
-        <label for="filtro-data">Data:</label>
-        <input type="date" id="filtro-data">
-        <button onclick="filtrar()">Filtrar</button>
-        <button onclick="limparFiltros()">Limpar</button>
+    <section class="impressao-controls">
+      <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
+    </section>
+    <section class="filtros-section">
+      <h2>Filtros</h2>
+      <p>Selecione os filtros desejados para visualizar o histórico de faturamentos.</p>
+      <div class="filtros">
+        <div class="filtros-container">
+          <label for="filtro-loja">Loja:</label>
+          <select id="filtro-loja">
+          <option value="todas">Todas</option>
+          <option value="faturamento_ortofisius">Ortofisi’us</option>
+          <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
+          <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
+          </select>  
+          <label for="filtro-data">Data:</label>
+          <input type="date" id="filtro-data">
+          <button onclick="filtrar()">Filtrar</button>
+          <button onclick="limparFiltros()">Limpar</button>
+        </div>           
       </div>
-      <div class="imprimir">
-        <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
-      </div>      
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Loja</th>
-          <th>Data</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody id="tabela-geral"></tbody>
-    </table>
-    <h2>Gráfico Comparativo de Faturamento</h2>
-    <canvas id="graficoFaturamento" width="600" height="300"></canvas>
+    </section>
+    <section class="tabela-section">
+      <h2>Histórico de Faturamento</h2>
+      <p>Visualize o histórico de faturamentos das lojas.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Loja</th>
+            <th>Data</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-geral"></tbody>
+      </table>
+    </section> 
+    <section class="grafico-section">
+      <h2>Gráfico Comparativo de Faturamento</h2>
+      <p>Visualize o gráfico comparativo de faturamento entre as lojas.</p>      
+      <canvas id="graficoFaturamento" width="600" height="300"></canvas>   
+    </section>
   </main>
-
+  <footer>
+    <p>&copy; 2025 Sistema de Faturamento - Histórico Geral</p>
+  </footer>  
+  <script src="../js/script.js"></script>
   <script src="../js/historicoGeral.js"></script>
 </body>
 </html>

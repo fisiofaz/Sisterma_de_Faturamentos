@@ -1,3 +1,6 @@
+@import url("./historicoGeral.css");
+@import url("./reset.css");
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -11,6 +14,14 @@ body {
 body.dark {
     background-color: #121212;
     color: #eee;
+}
+
+body.dark label,
+body.dark input,
+body.dark select,
+body.dark th,
+body.dark td {    
+    color: #000;    
 }
   
 body.dark header,
@@ -65,7 +76,7 @@ body.dark .btn {
 header {
     background-color: #00796b;
     color: #fff;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
 }
 
@@ -80,7 +91,7 @@ header p {
 }
 
 main {
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .menu-container {
@@ -131,7 +142,7 @@ form label {
 }
   
 form input {
-    width: 100%;
+    width: 98%;
     padding: 8px;
     margin-bottom: 10px;
 }
@@ -162,6 +173,13 @@ th, td {
     padding: 10px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+}
+
+.impressao-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .btn-imprimir {
@@ -204,9 +222,10 @@ footer {
     background-color: #1d3557;
     color: white;
     text-align: center;
+    margin-top: 1rem;
     padding: 1rem;
     font-size: 0.9rem;
-  }
+}
   
   
 /* Estilo para impressão */

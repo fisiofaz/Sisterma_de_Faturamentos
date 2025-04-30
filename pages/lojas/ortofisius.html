@@ -5,14 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Faturamento - Ortofisi'us</title>
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="icon" href="favicon.png" type="image/png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
   <header>
+    <button id="toggle-theme" title="Alternar tema">🌓</button>
     <h1>Faturamento Diário - Ortofisi'us</h1>
+    <p>Gerencie os registros de faturamento</p>
   </header>
 
   <main>
-    <form id="faturamento-form">
+    <section class="form-section">
+      <h2>Registrar Faturamento</h2>
+      <p>Preencha os campos abaixo para registrar o faturamento diário.</p>
+      <form id="faturamento-form">
       <label for="data">Data:</label>
       <input type="date" id="data" required>
 
@@ -20,20 +30,25 @@
       <input type="number" id="valor" step="0.01" required>
 
       <button type="submit">Salvar</button>
-    </form>
-
-    <h2>Histórico</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Valor</th>
-        </tr>
-      </thead>
-      <tbody id="historico-tabela"></tbody>
-    </table>
+      </form>
+    </section>
+    <section class="tabela-section">
+       <h2>Histórico de Faturamento</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody id="historico-tabela"></tbody>
+      </table> 
+    </section> 
   </main>
-
-  <script src="../../js/ortofisius.js"></script>
+  <footer>
+    <p>&copy; 2025 Ortofisi'us | Sistema de Faturamento</p>
+  </footer>
+  <script src="../../js/script.js"></script>
+  <script src="../js/ortofisius.js"></script>
 </body>
 </html>
