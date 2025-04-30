@@ -7,3 +7,12 @@ const toggleThemeBtn = document.getElementById("toggle-theme");
     document.body.classList.toggle("dark");
 });
 
+// Menu toggle responsivo
+const toggleMenu = document.querySelector(".menu-toggle");
+const menuLinks = document.querySelector(".menu-links");
+
+if (toggleMenu && menuLinks) {
+  toggleMenu.addEventListener("click", () => {
+    menuLinks.classList.toggle("show");
+  });
+}

@@ -1,10 +1,11 @@
 @import url("./reset.css");
 @import url('./global.css');
 
-@import url("./ortofisius.css");
+@import url("./index.css");
 @import url("./historicoGeral.css");
 
-@import url('./darkTogglePreloader.css');
+@import url("./darkTogglePreloader.css");
+
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -13,6 +14,49 @@ body {
     color: #333;
     transition: background 0.3s, color 0.3s;
 }
+
+.menu {   
+    background: var(--cor-secundaria);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;   
+    position: relative; 
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    color: var(--texto-claro);
+    border: none;
+    cursor: pointer;
+}
+
+.menu-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--texto-claro);
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+  
+.menu a:hover,
+.menu a:active {
+    background-color: var(--cor-destaque);
+    color: #fff;
+}
+  
 
 header {
     display: flex;
@@ -25,8 +69,7 @@ header {
     text-align: center;
 } 
 
-h1 {
-
+header h1 {
     font-size: 4rem;
     font-weight: 600;
 }
@@ -57,11 +100,113 @@ main p {
 
 .menu-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 1.5rem;
     padding: 2rem;
     flex: 1;
 }
+  
+form {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+}
+  
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--color-text-secundario);
+    font-size: 1.6rem;
+}
+  
+form input {
+    width: 98%;
+    padding: 1.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+
+select,
+  input[type="date"],
+  button {
+    padding: 1rem 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+  
+  
+button {
+    background-color: var(--color-bg-secundario);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+  
+button:hover {
+    background-color: #004d40;
+}
+  
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: var(--color-bg-primario);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+
+thead {
+    background-color: #004aad;
+    color: white;
+  }
+  
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.6rem;
+  }
+  
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+th, td {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--color-bg-secundario);
+    color: var(--color-text-primario);   
+    margin-top: 2rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+footer P {
+    font-size: 1.6rem;
+    font-weight: 300;    
+    color: var(--color-text-primario);
+    text-align: center;
+    padding: 0 1rem;
+}
+
 
 .btn {
     display: flex;
@@ -84,143 +229,136 @@ main p {
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
   
-
-form {
-    margin-top: 20px;
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #ccc;
-}
-  
-form label {
-    display: block;
-    margin: 10px 0 5px;
-}
-  
-form input {
-    width: 98%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-  
-button {
-    background-color: #00796b;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-  
-button:hover {
-    background-color: #004d40;
-}
-  
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-}
-  
-th, td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-}
-
-.impressao-controls {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.btn-imprimir {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 16px;
-    margin-top: 10px;
-    margin-bottom: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-  
-.btn-imprimir:hover {
-    background-color: #45a049;
-}
-
-.filtros {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
-}
-  
-.filtros label {
-    font-weight: bold;
-}
-  
-.filtros select,
-.filtros input,
-.filtros button {
-    padding: 6px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 0;
-    background-color: var(--color-bg-secundario);
-    color: var(--color-text-primario);   
-    margin-top: 1rem;
-    padding: 1rem;
-    font-size: 0.9rem;
-}
-
-footer P {
-    font-size: 1.6rem;
-    font-weight: 300;    
-    color: var(--color-text-primario);
-    text-align: center;
-    padding: 0 1rem;
-}
-  
-  
-/* Estilo para impressão */
+/* Impressão */
 @media print {
-    .btn-imprimir {
+    header, #toggle-theme, .filtros, .btn-imprimir, footer {
       display: none;
     }
   
-    body {
-      font-size: 12pt;
-      background: white;
-      color: black;
-    }
-  
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-    }
-  
-    table, th, td {
-      border: 1px solid black;
+      border: 1px solid #000;
     }
   
     th, td {
-      padding: 6px;
-      text-align: left;
+      border: 1px solid #000;
+      font-size: 12pt;
+    }
+  
+    body {
+      background: white;
+      color: black;
+      font-size: 12pt;
     }
 }
+
   
+/* Responsividade */
+  @media (min-width: 318px) and (max-width: 767px) {    
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        left: -28rem;
+        top: 2rem;
+      }
+    
+      .menu-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 3rem;
+      }
+    
+      .menu-links.show {
+        display: flex;
+      }
+    
+    #toggle-theme {
+        top: -.5rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 2.3rem;
+    }
+
+    main p {
+        font-size: 1.4rem;
+    }
+
+    .menu-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        
+    }
+
+    .filtros-container {
+      flex-direction: column;
+    }
+
+
+  
+    table, th, td {
+      font-size: 1.6rem;
+    }
+  
+    h1 {
+      font-size: 1.4rem;
+    }
+}
+
+  
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        left: -1rem;
+        top: -1rem;
+      }
+    
+      .menu-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 3rem;
+      }
+    
+      .menu-links.show {
+        display: flex;
+      }
+      
+      #toggle-theme {
+        top: -.5rem;
+    }
+    header h1 {
+        font-size: 3rem;
+    }
+    main h2 {
+        font-size: 2rem;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 1rem;
+
+    }
+
+    .filtros-container {
+      flex-direction: column;
+    }
+  
+    table, th, td {
+      font-size: 1.2rem;
+    }
+  
+    h1 {
+      font-size: 1.4rem;
+    }
+}

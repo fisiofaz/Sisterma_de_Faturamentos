@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Histórico Geral de Faturamentos</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="icon" href="favicon.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
@@ -13,10 +13,20 @@
   <div id="preloader">
     <div class="loader"></div>
   </div>
+  <nav class="menu">
+    <button class="menu-toggle" aria-label="Abrir Menu" title="Abrir Menu">☰</button>
+    <ul class="menu-links">
+      <li><a href="../index.html">Início</a></li>
+      <li><a href="./pages/lojas/ortofisius.html">Ortofisi’us</a></li>
+      <li><a href="./pages/lojas/fisiomedCentro.html">Fisiomed Centro</a></li>
+      <li><a href="./lojas/fisiomedCamobi.html">Fisiomed Camobi</a></li>
+      <li><a href="./historicoGeral.html" class="active">Histórico Geral</a></li>
+    </ul>
+  </nav>
   <header>
     <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
     <h1>Histórico Geral de Faturamentos</h1>
-    <p>Visualize o histórico de faturamentos das lojas</p>
+    <p>Visualize o histórico de faturamentos das lojas</p>    
   </header>  
   <main>    
     <section class="filtros-section">

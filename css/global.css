@@ -1,7 +1,6 @@
 :root {
     font-family: 'Inter', sans-serif;
-    font-size: 62.5%; /* 1rem = 10px */
-   
+    font-size: 62.5%; /* 1rem = 10px */   
    
     --color-bg-primario: #f6f9fc;
     --color-bg-secundario: #00796b;
@@ -10,4 +9,7 @@
     --color-text-primario: #ffffff;
     --color-text-secundario: #004aad;
     --color-text-dark: #eeeeee;
+    --cor-secundaria: #264653;
+    --cor-destaque: #2a9d8f;
+    --texto-claro: #ffffff;
 }
