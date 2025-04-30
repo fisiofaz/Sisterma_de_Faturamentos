@@ -17,12 +17,8 @@
     <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
     <h1>Histórico Geral de Faturamentos</h1>
     <p>Visualize o histórico de faturamentos das lojas</p>
-  </header>
-
-  <main>
-    <section class="impressao-controls">
-      <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
-    </section>
+  </header>  
+  <main>    
     <section class="filtros-section">
       <h2>Filtros</h2>
       <p>Selecione os filtros desejados para visualizar o histórico de faturamentos.</p>
@@ -39,6 +35,9 @@
           <input type="date" id="filtro-data">
           <button onclick="filtrar()">Filtrar</button>
           <button onclick="limparFiltros()">Limpar</button>
+        </div>
+        <div class="impressao-controls">
+          <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
         </div>           
       </div>
     </section>

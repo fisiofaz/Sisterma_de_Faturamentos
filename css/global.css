@@ -1,0 +1,13 @@
+:root {
+    font-family: 'Inter', sans-serif;
+    font-size: 62.5%; /* 1rem = 10px */
+   
+   
+    --color-bg-primario: #f6f9fc;
+    --color-bg-secundario: #00796b;
+    --color-bg-dark: #121212;
+    --color-bg-dark-2: #554747; 
+    --color-text-primario: #ffffff;
+    --color-text-secundario: #004aad;
+    --color-text-dark: #eeeeee;
+}

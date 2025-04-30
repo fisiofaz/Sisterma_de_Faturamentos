@@ -1,0 +1,28 @@
+.loja-1 { 
+    background-color: #f8c291; /* Ortofisi’us */
+} 
+
+.loja-2 { 
+    background-color: #b8e994; /* Fisiomed Centro */
+} 
+
+.loja-3 { 
+    background-color: #82ccdd; /* Fisiomed Camobi */
+} 
+
+.historico { 
+    background-color: #f7d794; 
+}   
+
+.loja-1, 
+.loja-2, 
+.loja-3, 
+.historico {    
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3436;
+    text-align: center;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
