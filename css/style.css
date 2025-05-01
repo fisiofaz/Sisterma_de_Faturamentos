@@ -3,6 +3,7 @@
 
 @import url("./index.css");
 @import url("./historicoGeral.css");
+@import url("./login.css");
 
 @import url("./darkTogglePreloader.css");
 
@@ -27,20 +28,19 @@ body {
   top: 2rem;
   left: 2rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: column;  
   width: 5rem;
   height: 5rem;
   color: #000;
-  height: 30px;
-  background: transparent;
+  height: 30px; 
   border: none;
   cursor: pointer;
-  z-index: 1001;
+    z-index: 1100;
 }
 
 .menu-toggle .bar {
-  width: 100%;
+  display: block;
+  width: 2.5rem;
   height: 4px;
   background-color: #0f022e;
   font-size: 4rem;
@@ -94,19 +94,13 @@ body {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-.menu a {
-  text-decoration: none;
-  color: var(--texto-claro);
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-  
 .menu-lateral a:hover {
   background-color: var(--cor-destaque);
   color: #fff;
+}
+
+.menu-lateral.active {
+  left: 0;
 }
 
 .menu-lateral.aberto {

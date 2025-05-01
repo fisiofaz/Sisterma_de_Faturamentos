@@ -7,8 +7,18 @@ const toggleThemeBtn = document.getElementById("toggle-theme");
     document.body.classList.toggle("dark");
 });
 
-document.getElementById('menuToggle').addEventListener('click', function () {
-  this.classList.toggle('ativo');
-  document.getElementById('menu').classList.toggle('aberto'); // se desejar abrir/fechar o menu também
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('menuToggle');
+  const menu = document.getElementById('menu');
+
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    toggleBtn.classList.toggle('open');
+  });
 });
 
+
+function logout() {
+  localStorage.removeItem('logado');
+  window.location.href = './page/login.html'; // Redireciona para a página de login
+}

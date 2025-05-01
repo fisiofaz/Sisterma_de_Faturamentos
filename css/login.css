@@ -1,0 +1,31 @@
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    text-align: center;
+  }
+  .login-container input {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    margin: 1rem 0;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .login-container button {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .login-container button:hover {
+    background-color: #0078d4;
+  }
+  

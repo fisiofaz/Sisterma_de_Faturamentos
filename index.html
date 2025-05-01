@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://kit.fontawesome.com/a2d9eaaa63.js" crossorigin="anonymous"></script>
+  <script>
+    if (localStorage.getItem('logado') !== 'sim') {
+      window.location.href = './pages/login.html';
+    }
+  </script>  
 </head>
 <body>
     <div id="preloader">
@@ -18,16 +23,18 @@
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
-    </button>
-    <nav class="menu-lateral" id="menu">              
-        <ul>
-          <li><a href="./index.html">Início</a></li>
-          <li><a href="./pages/lojas/ortofisius.html">Ortofisi’us</a></li>
-          <li><a href="./pages/lojas/fisiomedCentro.html">Fisiomed Centro</a></li>
-          <li><a href="./pages/lojas/fisiomedCamobi.html">Fisiomed Camobi</a></li>
-          <li><a href="./pages/historicoGeral.html" class="active">Histórico Geral</a></li>
-        </ul>
-      </nav>  
+        <span class="bar"></span>
+        <nav class="menu-lateral" id="menu">              
+            <ul>
+              <li><a href="./index.html">Início</a></li>
+              <li><a href="./pages/lojas/ortofisius.html">Ortofisi’us</a></li>
+              <li><a href="./pages/lojas/fisiomedCentro.html">Fisiomed Centro</a></li>
+              <li><a href="./pages/lojas/fisiomedCamobi.html">Fisiomed Camobi</a></li>
+              <li><a href="./pages/historicoGeral.html" class="active">Histórico Geral</a></li>
+              <li><a href="./pages/login.html" onclick="logout()">Sair</a></li>
+            </ul>
+          </nav>  
+    </button>   
     <header>
         <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
         <h1>Sistema de Faturamento</h1>
