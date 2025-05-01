@@ -7,12 +7,8 @@ const toggleThemeBtn = document.getElementById("toggle-theme");
     document.body.classList.toggle("dark");
 });
 
-// Menu toggle responsivo
-const toggleMenu = document.querySelector(".menu-toggle");
-const menuLinks = document.querySelector(".menu-links");
+document.getElementById('menuToggle').addEventListener('click', function () {
+  this.classList.toggle('ativo');
+  document.getElementById('menu').classList.toggle('aberto'); // se desejar abrir/fechar o menu também
+});
 
-if (toggleMenu && menuLinks) {
-  toggleMenu.addEventListener("click", () => {
-    menuLinks.classList.toggle("show");
-  });
-}
