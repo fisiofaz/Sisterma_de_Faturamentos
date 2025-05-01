@@ -144,10 +144,13 @@ select,
 button {
     background-color: var(--color-bg-secundario);
     color: #fff;
-    border: none;
-    padding: 10px 15px;
+    border: none;   
     cursor: pointer;
     border-radius: 5px;
+    font-size: 1.6rem;
+    width: 100%;
+    transition: background 0.3s ease;
+    height: 4rem;
 }
   
 button:hover {
@@ -275,6 +278,7 @@ footer P {
     
     #toggle-theme {
         top: -.5rem;
+
     }
     
     header h1 {
@@ -292,18 +296,14 @@ footer P {
         font-size: 1.4rem;
     }
 
-    .menu-container {
+  .menu-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));        
     }
 
     .filtros-container {
       flex-direction: column;
     }
-
-
-  
     table, th, td {
       font-size: 1.6rem;
     }
@@ -333,7 +333,7 @@ footer P {
       .menu-links.show {
         display: flex;
       }
-      
+
       #toggle-theme {
         top: -.5rem;
     }

@@ -34,17 +34,25 @@
       <p>Selecione os filtros desejados para visualizar o histórico de faturamentos.</p>
       <div class="filtros">
         <div class="filtros-container">
-          <label for="filtro-loja">Loja:</label>
-          <select id="filtro-loja">
-          <option value="todas">Todas</option>
-          <option value="faturamento_ortofisius">Ortofisi’us</option>
-          <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
-          <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
-          </select>  
-          <label for="filtro-data">Data:</label>
-          <input type="date" id="filtro-data">
-          <button onclick="filtrar()">Filtrar</button>
-          <button onclick="limparFiltros()">Limpar</button>
+          <div>
+             <label for="filtro-loja">Loja:</label>
+            <select id="filtro-loja">
+            <option value="todas">Todas</option>
+            <option value="faturamento_ortofisius">Ortofisi’us</option>  
+            <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
+            <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
+           </select>  
+          </div>
+          <div>
+            <label for="filtro-data">Data:</label>
+            <input type="date" id="filtro-data">
+          </div>
+          <div>
+            <button onclick="filtrar()">Filtrar</button>
+          </div>
+          <div>
+            <button onclick="limparFiltros()">Limpar</button>
+          </div>  
         </div>
         <div class="impressao-controls">
           <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
@@ -60,6 +68,7 @@
             <th>Loja</th>
             <th>Data</th>
             <th>Valor</th>
+            <th>Ações</th> 
           </tr>
         </thead>
         <tbody id="tabela-geral"></tbody>

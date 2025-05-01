@@ -17,17 +17,19 @@ function carregarTabela(filtroLoja = 'todas', filtroData = '') {
 
     const registros = JSON.parse(localStorage.getItem(loja.chave)) || [];
 
-    registros.forEach(registro => {
+    registros.forEach((registro, index) => {
       if (filtroData && registro.data !== filtroData) return;
-
+    
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${loja.nome}</td>
         <td>${registro.data}</td>
         <td>R$ ${parseFloat(registro.valor).toFixed(2)}</td>
+        <td><button onclick="excluirRegistro('${loja.chave}', ${index})" title="Excluir registro">🗑️</button></td>
       `;
+
       tabela.appendChild(tr);
-    });
+    });    
   });
 
   gerarGrafico(); 
@@ -123,3 +125,11 @@ function gerarCor() {
   return `rgb(${r}, ${g}, ${b})`;
 }
 
+function excluirRegistro(lojaChave, index) {
+  if (confirm("Tem certeza que deseja excluir este registro?")) {
+    const registros = JSON.parse(localStorage.getItem(lojaChave)) || [];
+    registros.splice(index, 1); // remove o item pelo índice
+    localStorage.setItem(lojaChave, JSON.stringify(registros));
+    carregarTabela(); // recarrega a tabela
+  }
+}
