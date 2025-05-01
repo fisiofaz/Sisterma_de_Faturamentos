@@ -1,33 +1,27 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Sistema de Faturamento</title>
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="icon" href="./favicon.png" />
 </head>
 <body>
   <main class="login-container">
-    <h2>Login</h2>
     <form id="login-form">
-      <input type="text" id="usuario" placeholder="Usuário" required />
-      <input type="password" id="senha" placeholder="Senha" required />
+      <h2>Login</h2>
+      <label for="username">Usuário</label>
+      <input type="text" id="username" required />
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" required />
+
       <button type="submit">Entrar</button>
+      <p id="error-message" class="error"></p>
     </form>
   </main>
-  <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const usuario = document.getElementById('usuario').value;
-      const senha = document.getElementById('senha').value;
-
-      if (usuario === 'admin' && senha === '1234') {
-        localStorage.setItem('logado', 'sim');
-        window.location.href = '../index.html';
-      } else {
-        alert('Usuário ou senha inválidos');
-      }
-    });
-  </script>
+  <script src="../js/login.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>

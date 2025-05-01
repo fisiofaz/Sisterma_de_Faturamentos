@@ -10,10 +10,12 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://kit.fontawesome.com/a2d9eaaa63.js" crossorigin="anonymous"></script>
   <script>
-    if (localStorage.getItem('logado') !== 'sim') {
+    const usuario = localStorage.getItem('usuarioLogado');
+    if (!usuario) {
       window.location.href = './pages/login.html';
     }
-  </script>  
+  </script>
+  
 </head>
 <body>
     <div id="preloader">
