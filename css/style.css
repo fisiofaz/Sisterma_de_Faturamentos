@@ -190,14 +190,20 @@ th, td {
     text-align: left;
 }
 
-footer {
-    position: fixed;
+
+
+tbody .acoes {
+    display: flex;
+    gap: 1rem;
+}
+
+footer {   
     bottom: 0;
     width: 100%;
     left: 0;
     background-color: var(--color-bg-secundario);
     color: var(--color-text-primario);   
-    margin-top: 2rem;
+    margin-top: 20rem;
     padding: 1rem;
     font-size: 0.9rem;
 }
@@ -361,4 +367,51 @@ footer P {
     h1 {
       font-size: 1.4rem;
     }
+}
+
+/* Estilo base dos botões */
+button {
+  border: none;
+  padding: 6px 10px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* Ícones modernos com texto opcional */
+button::before {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;  
+}
+
+
+button[onclick^="editarRegistro"], button[onclick^="excluirRegistro"] {
+  color: white;
+}
+
+button[onclick^="editarRegistro"]:hover, button[onclick^="excluirRegistro"]:hover  {
+  
+  transform: scale(1.05);
+}
+
+
+/* Material Icons (opcional se quiser usar ícones do Google Fonts) */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+button.editar::before {
+  content: "edit";
+}
+
+button.excluir::before {
+  content: "delete";
 }
