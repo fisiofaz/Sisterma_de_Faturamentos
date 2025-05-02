@@ -10,12 +10,22 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://kit.fontawesome.com/a2d9eaaa63.js" crossorigin="anonymous"></script>
   <script>
-    const usuario = localStorage.getItem('usuarioLogado');
-    if (!usuario) {
-      window.location.href = './pages/login.html';
-    }
-  </script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const usuario = localStorage.getItem('usuarioLogado');
+      const nomeSpan = document.getElementById('nome-usuario');
   
+      if (!usuario) {
+        window.location.href = './pages/login.html';
+      } else {
+        nomeSpan.textContent = usuario;
+      }
+  
+      document.getElementById('logout').addEventListener('click', () => {
+        localStorage.removeItem('usuarioLogado');
+        window.location.href = './pages/login.html';
+      });
+    });
+  </script>   
 </head>
 <body>
     <div id="preloader">
@@ -38,8 +48,9 @@
     </button>   
     <header>
         <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
-        <h1>Sistema de Faturamento</h1>
-        <p>Gerencie os registros das lojas</p>  
+        <h1>Sistema de Faturamento - <span id="nome-usuario"></span></h1>
+        <p>Gerencie os registros das lojas</p>
+        <button id="logout" class="btn-logout" onclick="logout()">Sair</button>        
     </header>
 
     <main class="menu-container">

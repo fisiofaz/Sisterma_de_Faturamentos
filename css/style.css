@@ -6,10 +6,10 @@
 @import url("./login.css");
 
 @import url("./darkTogglePreloader.css");
+@import url("./dashboard.css");
 
 
-body {
-   
+body {   
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     background-color: var( --color-bg-primario);

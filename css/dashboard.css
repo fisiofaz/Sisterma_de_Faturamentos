@@ -1,0 +1,24 @@
+.dashboard-container {
+    max-width: 800px;
+    margin: 10vh auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .btn-logout {
+    background-color: #015047;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    float: right; 
+    margin: 1rem;  
+  }
+  
+  .btn-logout:hover {
+    background-color: #c62828;
+  }
+  
