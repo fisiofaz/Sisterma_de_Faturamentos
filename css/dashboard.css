@@ -7,8 +7,8 @@
   }
   
   .btn-logout {
-    background-color: #015047;
-    color: white;
+    background-color: var(--color-bg-btn);
+    color: var(--color-text-primario);
     border: none;
     padding: 0.7rem 1.2rem;
     border-radius: 0.5rem;
@@ -19,6 +19,6 @@
   }
   
   .btn-logout:hover {
-    background-color: #c62828;
+    background-color: var(--color-bg-btn-hover);
   }
   
