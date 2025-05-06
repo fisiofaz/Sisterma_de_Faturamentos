@@ -6,6 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const STORAGE_KEY = 'faturamento_fisiomed_camobi'; // Altere conforme a loja
 
+  function formatarDataBR(dataISO) {
+    if (!dataISO || !dataISO.includes("-")) return dataISO;
+    const [ano, mes, dia] = dataISO.split("-");
+    return `${dia}/${mes}/${ano}`;
+  }
+
   function carregarDados() {
     const dados = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     tabela.innerHTML = '';
@@ -13,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     dados.forEach((registro, index) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td>${registro.data}</td>
+        <td>${formatarDataBR(registro.data)}</td>
         <td>R$ ${parseFloat(registro.valor).toFixed(2)}</td>
         <td class="acoes">
           <button onclick="editarRegistro(${index})" title="Editar">✏️</button>
@@ -47,13 +53,19 @@ document.addEventListener('DOMContentLoaded', () => {
   window.editarRegistro = function(index) {
     const registros = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     const registro = registros[index];
-
-    const novaData = prompt('Editar data:', registro.data);
+  
+    const dataBR = formatarDataBR(registro.data); // de aaaa-mm-dd → dd/mm/aaaa
+    const novaDataBR = prompt('Editar data (dd/mm/aaaa):', dataBR);
     const novoValor = prompt('Editar valor:', registro.valor);
-
-    if (novaData && novoValor && !isNaN(parseFloat(novoValor))) {
+  
+    function formatarDataISO(dataBR) {
+      const [dia, mes, ano] = dataBR.split('/');
+      return `${ano}-${mes}-${dia}`; // dd/mm/aaaa → aaaa-mm-dd
+    }
+  
+    if (novaDataBR && novoValor && !isNaN(parseFloat(novoValor))) {
       registros[index] = {
-        data: novaData,
+        data: formatarDataISO(novaDataBR),
         valor: parseFloat(novoValor).toFixed(2)
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(registros));
@@ -62,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Entrada inválida. Edição cancelada.');
     }
   };
+  
 
   window.excluirRegistro = function(index) {
     const registros = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];

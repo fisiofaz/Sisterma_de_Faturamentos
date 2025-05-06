@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Geral</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>  
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <nav class="menu-lateral" id="menu"> 
+          <ul>  
+            <li><a href="../index.html">Início</a></li>
+            <li><a href="./lojas/ortofisius.html">Ortofisi’us</a></li>
+            <li><a href="./lojas/fisiomedCentro.html">Fisiomed Centro</a></li>
+            <li><a href="./lojas/fisiomedCamobi.html">Fisiomed Camobi</a></li>
+            <li><a href="./historicoGeral.html">Histórico Geral</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+          </ul>
+        </nav>
+    </button> 
+  <header>
+    <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
+    <h1>Dashboard Geral</h1>
+    <p>Resumo do faturamento das lojas</p>
+  </header>
+
+  <main class="dashboard-container">
+    <section class="filtros-exportar">
+        <label for="mesFiltro">📅 Filtrar por Mês:</label>
+        <input type="month" id="mesFiltro" />
+        <button onclick="exportarPDF()">📄 Exportar PDF</button>
+    </section>
+    <section class="resumos">
+      <div id="resumo-totais"></div>
+      <div id="destaques-mes"></div>
+    </section>  
+    <section class="grafico-section">
+      <canvas id="graficoFaturamento"></canvas>
+    </section>  
+  </main>
+
+  <footer>
+    <p>© 2025 Sistema de Faturamento - Fábio André Zatta</p>
+  </footer>
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

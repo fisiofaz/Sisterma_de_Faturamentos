@@ -1,24 +1,85 @@
-.dashboard-container {
-    max-width: 800px;
-    margin: 10vh auto;
-    padding: 2rem;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-  }
+main {  
+  margin: 0 2rem;
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+main h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+section {
+  margin-top: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  background: #f4f4f4;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-left: 5px solid #007bff;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+canvas {
+  margin-top: 2rem;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.filtros-exportar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filtros-exportar input[type="month"] {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.filtros-exportar button {
+  padding: 0.5rem 1rem;
+  width: 80%;
+  font-size: 1.5rem;
+  background-color: #007bff;
+  color: var(--color-text-primario);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.filtros-exportar button:hover {
+  background-color: #0056b3;
+}
+
   
-  .btn-logout {
-    background-color: var(--color-bg-btn);
-    color: var(--color-text-primario);
-    border: none;
-    padding: 0.7rem 1.2rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    float: right; 
-    margin: 1rem;  
+@media (max-width: 700px) {
+  main {
+    padding: 1rem;
   }
-  
-  .btn-logout:hover {
-    background-color: var(--color-bg-btn-hover);
+
+  .filtros-exportar {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}

@@ -80,3 +80,21 @@ input[type="text"], input[type="password"] {
 .btn-login:hover {
   background-color: #303f9f;
 }
+
+
+.btn-logout {
+  background-color: var(--color-bg-btn);
+  color: var(--color-text-primario);
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  float: right; 
+  margin: 1rem;  
+}
+
+.btn-logout:hover {
+  background-color: var(--color-bg-btn-hover);
+}
+
