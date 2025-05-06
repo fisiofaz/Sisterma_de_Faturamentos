@@ -11,13 +11,18 @@
 } 
 
 .historico { 
-    background-color: #f7d794; 
+    background-color: #f7d794; /* Historico */
 }   
+
+.dashboard {
+    background-color: #f494f7; /* Dashboard */
+}
 
 .loja-1, 
 .loja-2, 
 .loja-3, 
-.historico {    
+.historico, 
+.dashboard {    
     font-size: 1.5rem;
     font-weight: 600;
     color: #2d3436;
