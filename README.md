@@ -63,7 +63,7 @@ faturamento-lojas/
 
 - Filtros por período
 
-## 📈 Funcionalidades futuras
+## 📌 Funcionalidades da segunda etapa - v.1.2
 
 1. Dashboard Geral com Resumo:
 
@@ -85,19 +85,21 @@ Nos históricos, incluir botões:
 
 - Atualizar o localStorage dinamicamente.
 
-3. Armazenamento em Nuvem (versão intermediária)
+## 📈 Funcionalidades futuras
+
+1. Armazenamento em Nuvem (versão intermediária)
 
 - Substituir localStorage por Firebase ou Supabase para armazenamento real dos dados.
 
 - Benefício: acesso em tempo real, múltiplos dispositivos.
 
-4. Controle de Acessos e Perfis
+2. Controle de Acessos e Perfis
 
 - Criar perfis (admin, gestor, etc.).
 
 - Diferentes permissões para visualizar e editar os dados.
 
-5. Melhorias Visuais e de UX
+3. Melhorias Visuais e de UX
 
 - Animações suaves nas transições de páginas.
 
@@ -129,6 +131,7 @@ code .
 
 v0.1 – Estrutura inicial + Página Ortofisi'us <br>
 v1.0 - Estrutura basica completa com todas as paginas<br>
-v1.1 - Impressão de relatórios e login de autenticação
+v1.1 - Impressão de relatórios e login de autenticação <br>
+v1.2 - Dashboard Geral com Resumo e Edição e Exclusão dos Registros
 
 Desenvolvido com dedicação por Fábio André Zatta 🚀
