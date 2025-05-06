@@ -15,8 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
   function carregarDados() {
     const dados = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
     tabela.innerHTML = '';
-
+  
+    const hoje = new Date();
+    const diaAtual = hoje.getDate();
+    const mesAtual = hoje.getMonth();
+    const anoAtual = hoje.getFullYear();
+  
+    let totalDia = 0;
+    let totalMes = 0;
+  
     dados.forEach((registro, index) => {
+      const dataRegistro = new Date(registro.data);
+  
+      // Soma total do dia
+      if (
+        dataRegistro.getDate() === diaAtual &&
+        dataRegistro.getMonth() === mesAtual &&
+        dataRegistro.getFullYear() === anoAtual
+      ) {
+        totalDia += parseFloat(registro.valor);
+      }
+  
+      // Soma total do mês
+      if (
+        dataRegistro.getMonth() === mesAtual &&
+        dataRegistro.getFullYear() === anoAtual
+      ) {
+        totalMes += parseFloat(registro.valor);
+      }
+  
       const tr = document.createElement('tr');
       tr.innerHTML = `
         <td>${formatarDataBR(registro.data)}</td>
@@ -28,7 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       tabela.appendChild(tr);
     });
+  
+    // Atualiza os valores no HTML
+    document.getElementById('total-dia').textContent = totalDia.toFixed(2);
+    document.getElementById('total-mes').textContent = totalMes.toFixed(2);
   }
+  
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
