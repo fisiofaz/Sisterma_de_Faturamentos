@@ -1,5 +1,5 @@
 // ../js/ortofisius.js
-import { carregarDadosGenerico } from './utils.js'; // Importa a função utilitária
+import { carregarDadosGenerico, atualizarTotaisGenerico } from './utils.js'; // Importa a função utilitária
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('faturamento-form');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function formatarDataBR(dataISO) {
     if (!dataISO || !dataISO.includes("-")) return dataISO;
-    const [ano, mes, dia] = dataISO.split("-");
+  const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
   }
 
@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const registro = registros[index];
 
     const dataBR = formatarDataBR(registro.data); // de aaaa-mm-dd → dd/mm/aaaa
-    const novaDataBR = prompt('Editar data (dd/mm/aaaa):', dataBR);
+  
+  const novaDataBR = prompt('Editar data (dd/mm/aaaa):', dataBR);
     const novoValor = prompt('Editar valor:', registro.valor);
 
     if (novaDataBR && novoValor && !isNaN(parseFloat(novoValor))) {
@@ -66,17 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function carregarDados() {
     carregarDadosGenerico(STORAGE_KEY, 'historico-tabela', criarLinhaOrtofisius);
-    atualizarTotais(); // Chama a função para atualizar os totais após carregar os dados
-  }
-
-  function atualizarTotais() {
-    const registros = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    const hoje = new Date().toISOString().split('T')[0];
-    const mesAtual = hoje.slice(0, 7);
-    const totalDia = registros.filter(r => r.data === hoje).reduce((soma, r) => soma + parseFloat(r.valor), 0);
-    const totalMes = registros.filter(r => r.data.startsWith(mesAtual)).reduce((soma, r) => soma + parseFloat(r.valor), 0);
-    totalDiaSpan.textContent = totalDia.toFixed(2);
-    totalMesSpan.textContent = totalMes.toFixed(2);
+    atualizarTotaisGenerico(STORAGE_KEY, 'total-dia', 'total-mes'); // Usa a função genérica
   }
 
   form.addEventListener('submit', (e) => {

@@ -66,20 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function carregarDados() {
     carregarDadosGenerico(STORAGE_KEY, 'historico-tabela', criarLinhaFisiomedCamobi);
-    atualizarTotais(); // Chama a função para atualizar os totais após carregar os dados
+    atualizarTotaisGenerico(STORAGE_KEY, 'total-dia', 'total-mes'); // Usa a função genérica
   }
 
-  function atualizarTotais() {
-    const registros = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    const hoje = new Date().toISOString().split('T')[0];
-    const mesAtual = hoje.slice(0, 7);
-    const totalDia = registros.filter(r => r.data === hoje).reduce((soma, r) => soma + parseFloat(r.valor), 0);
-    const totalMes = registros.filter(r => r.data.startsWith(mesAtual)).reduce((soma, r) => soma + parseFloat(r.valor), 0);
-    totalDiaSpan.textContent = totalDia.toFixed(2);
-    totalMesSpan.textContent = totalMes.toFixed(2);
-  }
-
-  form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const data = dataInput.value;
