@@ -22,3 +22,4 @@ function logout() {
   localStorage.removeItem('logado');
   window.location.href = './page/login.html'; // Redireciona para a página de login
 }
+

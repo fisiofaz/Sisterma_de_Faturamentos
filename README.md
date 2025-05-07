@@ -87,19 +87,16 @@ Nos históricos, incluir botões:
 
 ## 📈 Funcionalidades futuras
 
-1. Armazenamento em Nuvem (versão intermediária)
+- 🔐 Sugestão futura: usar autenticação via backend e tokens (JWT).
+- 
 
-- Substituir localStorage por Firebase ou Supabase para armazenamento real dos dados.
-
-- Benefício: acesso em tempo real, múltiplos dispositivos.
-
-2. Controle de Acessos e Perfis
+1. Controle de Acessos e Perfis
 
 - Criar perfis (admin, gestor, etc.).
 
 - Diferentes permissões para visualizar e editar os dados.
 
-3. Melhorias Visuais e de UX
+2. Melhorias Visuais e de UX
 
 - Animações suaves nas transições de páginas.
 

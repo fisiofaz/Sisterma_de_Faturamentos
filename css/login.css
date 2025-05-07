@@ -31,16 +31,6 @@
   font-family: 'Inter', sans-serif;
   text-align: center;
 }
-.login-container {
-  max-width: 400px;
-  margin: 10vh auto;
-  padding: 2rem;
-  border-radius: 1rem;
-  background-color: #ffffff;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  font-family: 'Inter', sans-serif;
-  text-align: center;
-}
 
 .input-group {
   margin-bottom: 1.5rem;

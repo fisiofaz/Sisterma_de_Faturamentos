@@ -357,20 +357,8 @@ button.excluir::before {
 
   
 /* Responsividade */
-  @media (min-width: 318px) and (max-width: 767px) {    
-    
-    .menu-links {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 3rem;
-    }
-    
-    .menu-links.show {
-        display: flex;
-    }
-    
+  @media (min-width: 318px) and (max-width: 767px) {        
+       
     #toggle-theme {
         top: -.5rem;
     }
@@ -408,21 +396,9 @@ button.excluir::before {
 }
 
   
-@media (max-width: 768px) {
+@media (max-width: 768px) {       
     
-    .menu-links {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-        margin-top: 3rem;
-    }
-    
-    .menu-links.show {
-        display: flex;
-      }
-
-      #toggle-theme {
+    #toggle-theme {
         top: -.5rem;
     }
     header h1 {
