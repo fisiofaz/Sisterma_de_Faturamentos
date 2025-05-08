@@ -122,3 +122,37 @@ export function formatarDataISO(dataBR) {
   const [dia, mes, ano] = dataBR.split('/');
   return `${ano}-${mes}-${dia}`;
 }
+
+export function prepararDadosGrafico(lojas) {
+  const datasUnicas = new Set();
+  const dadosPorLoja = {};
+
+  lojas.forEach(loja => {
+    const registros = JSON.parse(localStorage.getItem(loja.chave)) || [];
+    registros.forEach(reg => {
+      datasUnicas.add(reg.data);
+      if (!dadosPorLoja[loja.nome]) {
+        dadosPorLoja[loja.nome] = {};
+      }
+      dadosPorLoja[loja.nome][reg.data] = parseFloat(reg.valor) || 0;
+    });
+  });
+
+  const datasOrdenadas = Array.from(datasUnicas).sort();
+  const datasets = lojas.map(loja => ({
+    label: loja.nome,
+    data: datasOrdenadas.map(data => dadosPorLoja[loja.nome]?.[data] || 0),
+    fill: false,
+    borderColor: gerarCorAleatoria(), // Assumindo que gerarCorAleatoria também será movida para utils.js
+    tension: 0.1
+  }));
+
+  return { labels: datasOrdenadas, datasets: datasets };
+}
+
+export function gerarCorAleatoria() {
+  const r = Math.floor(Math.random() * 156) + 100;
+  const g = Math.floor(Math.random() * 156) + 100;
+  const b = Math.floor(Math.random() * 156) + 100;
+  return `rgb(${r}, ${g}, ${b})`;
+}

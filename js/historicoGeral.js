@@ -1,4 +1,4 @@
-import { excluirRegistroGenerico, carregarTabelaGenerico } from './utils.js'; // Importa a função utilitária
+import { excluirRegistroGenerico, carregarTabelaGenerico, prepararDadosGrafico, gerarCorAleatoria  } from './utils.js'; // Importa a função utilitária
 
 document.addEventListener('DOMContentLoaded', () => {
   carregarTabela();
@@ -20,27 +20,8 @@ function criarLinhaHistoricoGeral(linha, registro, lojaNome, lojaChave, index) {
 }
 
 function carregarTabela(filtroLoja = 'todas', filtroData = '') {
-  const tabela = document.getElementById('tabela-geral');
-  if (!tabela) {
-    console.error(`Tabela com ID "tabela-geral" não encontrada.`);
-    return;
-  }  
-  tabela.innerHTML = ''; // limpa a tabela 
-
-  lojas.forEach(loja => {
-    if (filtroLoja !== 'todas' && filtroLoja !== loja.chave) return;
-
-    const registros = JSON.parse(localStorage.getItem(loja.chave)) || [];
-
-    registros.forEach((registro, index) => {
-      if (filtroData && registro.data !== filtroData) return;
-    
-      const tr = document.createElement('tr');
-      criarLinhaHistoricoGeral(tr, registro, loja.nome, loja.chave, index);
-      tabela.appendChild(tr);
-    });    
-  });
-  gerarGrafico(); 
+  carregarTabelaGenerico(lojas, 'tabela-geral', criarLinhaHistoricoGeral, filtroLoja, filtroData);
+  gerarGrafico();
 }
 
 function filtrar() {
@@ -57,54 +38,14 @@ function limparFiltros() {
 
 let chartInstance;
 function gerarGrafico() {
-  const lojas = [
-    { nome: 'Ortofisi’us', chave: 'faturamento_ortofisius' },
-    { nome: 'Fisiomed Centro', chave: 'faturamento_fisiomed_centro' },
-    { nome: 'Fisiomed Camobi', chave: 'faturamento_fisiomed_camobi' },
-  ];
-
-  const datasUnicas = new Set();
-  const dadosPorLoja = {};
-
-  lojas.forEach(loja => {
-    const registros = JSON.parse(localStorage.getItem(loja.chave)) || [];
-
-    registros.forEach(reg => {
-      datasUnicas.add(reg.data);
-
-      if (!dadosPorLoja[loja.nome]) {
-        dadosPorLoja[loja.nome] = {};
-      }
-
-      dadosPorLoja[loja.nome][reg.data] = parseFloat(reg.valor);
-    });
-  });
-
-  const datasOrdenadas = Array.from(datasUnicas).sort();
-
-  const datasets = lojas.map(loja => {
-    const valores = datasOrdenadas.map(data => dadosPorLoja[loja.nome]?.[data] || 0);
-
-    return {
-      label: loja.nome,
-      data: valores,
-      fill: false,
-      borderColor: gerarCor(),
-      tension: 0.1
-    };
-  });
-
+  const dadosGrafico = prepararDadosGrafico(lojas);
   const ctx = document.getElementById('graficoFaturamento').getContext('2d');
 
-  // Destrói o gráfico anterior se já existir
   if (chartInstance) chartInstance.destroy();
 
   chartInstance = new Chart(ctx, {
-    type: 'line', // Você pode trocar para 'bar'
-    data: {
-      labels: datasOrdenadas,
-      datasets: datasets
-    },
+    type: 'line',
+    data: dadosGrafico,
     options: {
       responsive: true,
       plugins: {
@@ -126,10 +67,8 @@ function gerarGrafico() {
 }
 
 function gerarCor() {
-  const r = Math.floor(Math.random() * 156) + 100;
-  const g = Math.floor(Math.random() * 156) + 100;
-  const b = Math.floor(Math.random() * 156) + 100;
-  return `rgb(${r}, ${g}, ${b})`;
+  // Esta função foi movida para utils.js como gerarCorAleatoria
+  return gerarCorAleatoria();
 }
 
 function excluirRegistro(lojaChave, index) {
