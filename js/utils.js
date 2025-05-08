@@ -12,7 +12,7 @@ export function carregarDadosGenerico(storageKey, tabelaId, criarLinhaCallback) 
       const linha = tabela.insertRow();
       criarLinhaCallback(linha, registro, index);
     });
-  }
+}
 
 export function atualizarTotaisGenerico(storageKey, totalDiaId, totalMesId) {
     const totalDiaSpan = document.getElementById(totalDiaId);
@@ -37,7 +37,7 @@ export function atualizarTotaisGenerico(storageKey, totalDiaId, totalMesId) {
   
     totalDiaSpan.textContent = totalDia.toFixed(2);
     totalMesSpan.textContent = totalMes.toFixed(2);
-  }
+}
 
 export function editarRegistroGenerico(storageKey, index, camposEdicao, callbackRecarregar) {
     const registros = JSON.parse(localStorage.getItem(storageKey)) || [];
@@ -72,7 +72,7 @@ export function editarRegistroGenerico(storageKey, index, camposEdicao, callback
       localStorage.setItem(storageKey, JSON.stringify(registros));
       callbackRecarregar();
     }
-  }
+}
 
 export function excluirRegistroGenerico(storageKey, index, callbackRecarregar) {
     const registros = JSON.parse(localStorage.getItem(storageKey)) || [];
@@ -86,4 +86,27 @@ export function excluirRegistroGenerico(storageKey, index, callbackRecarregar) {
       localStorage.setItem(storageKey, JSON.stringify(registros));
       callbackRecarregar();
     }
-  }
+}
+
+export function carregarTabelaGenerico(lojas, tabelaId, criarLinhaCallback, filtroLoja = 'todas', filtroData = '') {
+    const tabela = document.getElementById(tabelaId);
+    if (!tabela) {
+      console.error(`Tabela com ID "${tabelaId}" não encontrada.`);
+      return;
+    }
+    tabela.innerHTML = ''; // limpa a tabela
+  
+    lojas.forEach(loja => {
+      if (filtroLoja !== 'todas' && filtroLoja !== loja.chave) return;
+  
+      const registros = JSON.parse(localStorage.getItem(loja.chave)) || [];
+  
+      registros.forEach((registro, index) => {
+        if (filtroData && registro.data !== filtroData) return;
+  
+        const tr = document.createElement('tr');
+        criarLinhaCallback(tr, registro, loja.nome);
+        tabela.appendChild(tr);
+      });
+    });
+}

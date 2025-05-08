@@ -1,16 +1,31 @@
+import { excluirRegistroGenerico, carregarTabelaGenerico } from './utils.js'; // Importa a função utilitária
+
 document.addEventListener('DOMContentLoaded', () => {
   carregarTabela();
 });
 
+const lojas = [
+  { nome: 'Ortofisi’us', chave: 'faturamento_ortofisius' },
+  { nome: 'Fisiomed Centro', chave: 'faturamento_fisiomed_centro' },
+  { nome: 'Fisiomed Camobi', chave: 'faturamento_fisiomed_camobi' },
+];
+
+function criarLinhaHistoricoGeral(linha, registro, lojaNome, lojaChave, index) {
+  linha.innerHTML = `
+    <td>${lojaNome}</td>
+    <td>${registro.data}</td>
+    <td>R$ ${parseFloat(registro.valor).toFixed(2)}</td>
+    <td><button onclick="excluirRegistro('${lojaChave}', ${index})" title="Excluir registro">🗑️</button></td>
+  `;
+}
+
 function carregarTabela(filtroLoja = 'todas', filtroData = '') {
   const tabela = document.getElementById('tabela-geral');
-  tabela.innerHTML = ''; // limpa a tabela
-
-  const lojas = [
-    { nome: 'Ortofisi’us', chave: 'faturamento_ortofisius' },
-    { nome: 'Fisiomed Centro', chave: 'faturamento_fisiomed_centro' },
-    { nome: 'Fisiomed Camobi', chave: 'faturamento_fisiomed_camobi' },
-  ];
+  if (!tabela) {
+    console.error(`Tabela com ID "tabela-geral" não encontrada.`);
+    return;
+  }  
+  tabela.innerHTML = ''; // limpa a tabela 
 
   lojas.forEach(loja => {
     if (filtroLoja !== 'todas' && filtroLoja !== loja.chave) return;
@@ -21,17 +36,10 @@ function carregarTabela(filtroLoja = 'todas', filtroData = '') {
       if (filtroData && registro.data !== filtroData) return;
     
       const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>${loja.nome}</td>
-        <td>${registro.data}</td>
-        <td>R$ ${parseFloat(registro.valor).toFixed(2)}</td>
-        <td><button onclick="excluirRegistro('${loja.chave}', ${index})" title="Excluir registro">🗑️</button></td>
-      `;
-
+      criarLinhaHistoricoGeral(tr, registro, loja.nome, loja.chave, index);
       tabela.appendChild(tr);
     });    
   });
-
   gerarGrafico(); 
 }
 
@@ -48,7 +56,6 @@ function limparFiltros() {
 }
 
 let chartInstance;
-
 function gerarGrafico() {
   const lojas = [
     { nome: 'Ortofisi’us', chave: 'faturamento_ortofisius' },
@@ -126,10 +133,5 @@ function gerarCor() {
 }
 
 function excluirRegistro(lojaChave, index) {
-  if (confirm("Tem certeza que deseja excluir este registro?")) {
-    const registros = JSON.parse(localStorage.getItem(lojaChave)) || [];
-    registros.splice(index, 1); // remove o item pelo índice
-    localStorage.setItem(lojaChave, JSON.stringify(registros));
-    carregarTabela(); // recarrega a tabela
-  }
+  excluirRegistroGenerico(lojaChave, index, carregarTabela);
 }
