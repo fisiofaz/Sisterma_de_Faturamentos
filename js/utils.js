@@ -14,7 +14,7 @@ export function carregarDadosGenerico(storageKey, tabelaId, criarLinhaCallback) 
     });
   }
 
-  export function atualizarTotaisGenerico(storageKey, totalDiaId, totalMesId) {
+export function atualizarTotaisGenerico(storageKey, totalDiaId, totalMesId) {
     const totalDiaSpan = document.getElementById(totalDiaId);
     const totalMesSpan = document.getElementById(totalMesId);
   
@@ -37,4 +37,53 @@ export function carregarDadosGenerico(storageKey, tabelaId, criarLinhaCallback) 
   
     totalDiaSpan.textContent = totalDia.toFixed(2);
     totalMesSpan.textContent = totalMes.toFixed(2);
+  }
+
+export function editarRegistroGenerico(storageKey, index, camposEdicao, callbackRecarregar) {
+    const registros = JSON.parse(localStorage.getItem(storageKey)) || [];
+    if (index < 0 || index >= registros.length) {
+      console.error('Índice de registro inválido.');
+      return;
+    }
+  
+    const registro = { ...registros[index] }; // Cria uma cópia para evitar modificação direta
+    let edicaoCancelada = false;
+  
+    for (const campo in camposEdicao) {
+      const definicaoCampo = camposEdicao[campo];
+      const valorAtual = registro[campo];
+      const novoValorPrompt = definicaoCampo.solicitarValor(valorAtual);
+  
+      if (novoValorPrompt === null) {
+        edicaoCancelada = true;
+        break; // Edição cancelada pelo usuário
+      }
+  
+      if (!definicaoCampo.validarValor(novoValorPrompt)) {
+        alert(`Valor inválido para o campo "${campo}". Edição cancelada.`);
+        return;
+      }
+  
+      registro[campo] = definicaoCampo.formatarValor ? definicaoCampo.formatarValor(novoValorPrompt) : novoValorPrompt;
+    }
+  
+    if (!edicaoCancelada) {
+      registros[index] = registro;
+      localStorage.setItem(storageKey, JSON.stringify(registros));
+      callbackRecarregar();
+    }
+  }
+
+export function excluirRegistroGenerico(storageKey, index, callbackRecarregar) {
+    const registros = JSON.parse(localStorage.getItem(storageKey)) || [];
+    if (index < 0 || index >= registros.length) {
+      console.error('Índice de registro para exclusão inválido.');
+      return;
+    }
+  
+    if (confirm('Tem certeza que deseja excluir este registro?')) {
+      registros.splice(index, 1);
+      localStorage.setItem(storageKey, JSON.stringify(registros));
+      callbackRecarregar();
+    }
   }

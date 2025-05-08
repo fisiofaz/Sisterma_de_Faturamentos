@@ -1,5 +1,6 @@
 // ../js/ortofisius.js
-import { carregarDadosGenerico, atualizarTotaisGenerico } from './utils.js'; // Importa a função utilitária
+import { carregarDadosGenerico, atualizarTotaisGenerico, editarRegistroGenerico, excluirRegistroGenerico } from './utils.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('faturamento-form');
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function formatarDataBR(dataISO) {
     if (!dataISO || !dataISO.includes("-")) return dataISO;
-  const [ano, mes, dia] = dataISO.split("-");
+    const [ano, mes, dia] = dataISO.split("-");
     return `${dia}/${mes}/${ano}`;
   }
 
@@ -22,35 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.editarRegistro = function(index) {
-    const registros = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    const registro = registros[index];
-
-    const dataBR = formatarDataBR(registro.data); // de aaaa-mm-dd → dd/mm/aaaa
-  
-  const novaDataBR = prompt('Editar data (dd/mm/aaaa):', dataBR);
-    const novoValor = prompt('Editar valor:', registro.valor);
-
-    if (novaDataBR && novoValor && !isNaN(parseFloat(novoValor))) {
-      registros[index] = {
-        data: formatarDataISO(novaDataBR),
-        valor: parseFloat(novoValor).toFixed(2)
-      };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(registros));
-      carregarDados(); // Chama a função para recarregar a tabela e os totais
-    } else {
-      alert('Entrada inválida. Edição cancelada.');
-    }
+    const camposEdicao = {
+      data: {
+        solicitarValor: (valorAtual) => prompt('Editar data (dd/mm/aaaa):', formatarDataBR(valorAtual)),
+        validarValor: (novoValor) => /^\d{2}\/\d{2}\/\d{4}$/.test(novoValor),
+        formatarValor: formatarDataISO,
+      },
+      valor: {
+        solicitarValor: (valorAtual) => prompt('Editar valor:', valorAtual),
+        validarValor: (novoValor) => !isNaN(parseFloat(novoValor)),
+        formatarValor: (novoValor) => parseFloat(novoValor).toFixed(2),
+      },
+    };
+    editarRegistroGenerico(STORAGE_KEY, index, camposEdicao, carregarDados);
   };
 
   window.excluirRegistro = function(index) {
-    const registros = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-    if (confirm('Tem certeza que deseja excluir este registro?')) {
-      registros.splice(index, 1);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(registros));
-      carregarDados(); // Chama a função para recarregar a tabela e os totais
-    }
+    excluirRegistroGenerico(STORAGE_KEY, index, carregarDados);
   };
-
+  
   function criarLinhaOrtofisius(linha, registro, index) {
     const celulaData = linha.insertCell();
     const celulaValor = linha.insertCell();
