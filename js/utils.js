@@ -110,3 +110,15 @@ export function carregarTabelaGenerico(lojas, tabelaId, criarLinhaCallback, filt
       });
     });
 }
+
+export function formatarDataBR(dataISO) {
+  if (!dataISO || !dataISO.includes("-")) return dataISO;
+  const [ano, mes, dia] = dataISO.split("-");
+  return `${dia}/${mes}/${ano}`;
+}
+
+export function formatarDataISO(dataBR) {
+  if (!dataBR || !dataBR.includes("/")) return dataBR;
+  const [dia, mes, ano] = dataBR.split('/');
+  return `${ano}-${mes}-${dia}`;
+}

@@ -1,5 +1,5 @@
 // ../js/fisiomedCentro.js
-import { carregarDadosGenerico, atualizarTotaisGenerico, editarRegistroGenerico, excluirRegistroGenerico } from './utils.js';
+import { carregarDadosGenerico, atualizarTotaisGenerico, editarRegistroGenerico, excluirRegistroGenerico, formatarDataBR, formatarDataISO } from './utils.js';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,17 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalDiaSpan = document.getElementById('total-dia');
   const totalMesSpan = document.getElementById('total-mes');
   const STORAGE_KEY = 'faturamento_fisiomed_centro';
-
-  function formatarDataBR(dataISO) {
-    if (!dataISO || !dataISO.includes("-")) return dataISO;
-    const [ano, mes, dia] = dataISO.split("-");
-    return `${dia}/${mes}/${ano}`;
-  }
-
-  function formatarDataISO(dataBR) {
-    const [dia, mes, ano] = dataBR.split('/');
-    return `${ano}-${mes}-${dia}`;
-  }
 
   window.editarRegistro = function(index) {
     const camposEdicao = {
