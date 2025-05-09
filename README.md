@@ -28,11 +28,15 @@ faturamento-lojas/
 │   ├── ortofisius.html
 │   ├── fisiomed-centro.html
 │   ├── fisiomed-camobi.html
-├── historico.html
+├── historicoGeral.html
+├── dashboard.html
 ├── css/
 │   └── style.css
 ├── js/
-│   ├── main.js
+│   ├── utils.js
+│   ├── dashboard.js
+│   ├── login.js
+│   ├── script.js
 │   ├── ortofisius.js
 │   ├── fisiomed-centro.js
 │   ├── fisiomed-camobi.js
@@ -85,26 +89,15 @@ Nos históricos, incluir botões:
 
 - Atualizar o localStorage dinamicamente.
 
+## 📌 Funcionalidades da segunda etapa - v.2.0
+
+1. Reafaztoramento do codifo para React
+
 ## 📈 Funcionalidades futuras
 
-- 🔐 Sugestão futura: usar autenticação via backend e tokens (JWT).
-- 
-
-1. Controle de Acessos e Perfis
-
-- Criar perfis (admin, gestor, etc.).
-
-- Diferentes permissões para visualizar e editar os dados.
-
-2. Melhorias Visuais e de UX
-
-- Animações suaves nas transições de páginas.
-
-- Feedback visual ao salvar/excluir/editar.
-
-- Tooltip nos ícones.
-
-- PWA (Progressive Web App) para rodar como app em celular.
+- React
+- Banco de Dados
+- Java ou NodeJs
 
 
 ## 💻 Como executar o projeto
@@ -130,5 +123,6 @@ v0.1 – Estrutura inicial + Página Ortofisi'us <br>
 v1.0 - Estrutura basica completa com todas as paginas<br>
 v1.1 - Impressão de relatórios e login de autenticação <br>
 v1.2 - Dashboard Geral com Resumo e Edição e Exclusão dos Registros
+v1.9 - Feito a Acenssebilidade do projeto
 
 Desenvolvido com dedicação por Fábio André Zatta 🚀
