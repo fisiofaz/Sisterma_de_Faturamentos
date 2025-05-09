@@ -353,6 +353,19 @@ button.excluir::before {
       color: black;
       font-size: 12pt;
     }
+
+    .nao-imprimir {
+      display: none !important;
+    }
+  
+    .para-impressao {
+      /* Estilos específicos para o PDF */
+      font-size: 12pt;
+    }
+  
+    .escondido-para-tela {
+      display: block !important;
+    }
 }
 
   

@@ -156,3 +156,87 @@ export function gerarCorAleatoria() {
   const b = Math.floor(Math.random() * 156) + 100;
   return `rgb(${r}, ${g}, ${b})`;
 }
+
+export function obterTotaisFaturamento(storageKey) {
+  const registros = JSON.parse(localStorage.getItem(storageKey)) || [];
+  const hoje = new Date().toISOString().split('T')[0];
+  const mesAtual = hoje.slice(0, 7);
+
+  const totalDia = registros
+    .filter(r => r.data === hoje)
+    .reduce((soma, r) => soma + parseFloat(r.valor), 0);
+
+  const totalMes = registros
+    .filter(r => r.data.startsWith(mesAtual))
+    .reduce((soma, r) => soma + parseFloat(r.valor), 0);
+
+  return {
+    totalDia: totalDia.toFixed(2),
+    totalMes: totalMes.toFixed(2),
+  };
+}
+
+export function prepararDadosGraficoDashboard(lojas) {
+  const labels = lojas.map(loja => loja.nome);
+  const totaisDia = lojas.map(loja => {
+    const totais = obterTotaisFaturamento(loja.chave);
+    return parseFloat(totais.totalDia);
+  });
+  const totaisMes = lojas.map(loja => {
+    const totais = obterTotaisFaturamento(loja.chave);
+    return parseFloat(totais.totalMes);
+  });
+
+  return {
+    labels: labels,
+    datasets: [
+      {
+        label: 'Total Dia',
+        data: totaisDia,
+        backgroundColor: 'rgba(54, 162, 235, 0.7)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+      },
+      {
+        label: 'Total Mês',
+        data: totaisMes,
+        backgroundColor: 'rgba(255, 99, 132, 0.7)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1,
+      },
+    ],
+  };
+}
+
+export function formatarMoeda(valor) {
+  return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+}
+
+export function formatarDataBR(dataISO) {
+  if (!dataISO || !dataISO.includes("-")) return dataISO;
+  const partes = dataISO.split("-");
+  return partes.length === 3 ? `${partes[2]}/${partes[1]}/${partes[0]}` : dataISO;
+}
+
+export function obterDados(nomeStorage) {
+  return JSON.parse(localStorage.getItem(nomeStorage)) || [];
+}
+
+export function calcularTotais(dados) {
+  return dados.reduce((soma, item) => soma + (parseFloat(item.valor) || 0), 0);
+}
+
+export function calcularDestaques(dados) {
+  if (dados.length === 0) return null;
+
+  const valores = dados.map((d) => parseFloat(d.valor) || 0);
+  const maiorValor = Math.max(...valores);
+  const media = valores.reduce((a, b) => a + b, 0) / valores.length;
+  const dataOriginal = dados.find((d) => parseFloat(d.valor) === maiorValor)?.data || "N/A";
+
+  return {
+    maiorValor,
+    media,
+    diaMaior: formatarDataBR(dataOriginal), // Usando a função importada de utils.js
+  };
+}
