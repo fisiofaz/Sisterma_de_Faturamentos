@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="./css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
-  <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://kit.fontawesome.com/a2d9eaaa63.js" crossorigin="anonymous"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -43,7 +42,7 @@
               <li><a href="./pages/lojas/fisiomedCamobi.html">Fisiomed Camobi</a></li>
               <li><a href="./pages/historicoGeral.html" class="active">Histórico Geral</a></li>
               <li><a href="./pages/dashboard.htm" class="active">Dashboard</a></li>
-              <li><a href="./pages/login.html" onclick="logout()">Sair</a></li>
+              <li><a href="./pages/login.html" onclick="logout()" aria-label="Sair">Sair</a></li>
             </ul>
           </nav>  
     </button>   
@@ -51,30 +50,39 @@
         <button id="toggle-theme" aria-label="Alternar tema" title="Alternar tema">🌓</button>
         <h1>Sistema de Faturamento - <span id="nome-usuario"></span></h1>
         <p>Gerencie os registros das lojas</p>
-        <button id="logout" class="btn-logout" onclick="logout()">Sair</button>        
+        <button id="logout" class="btn-logout" onclick="logout()" aria-label="Sair">Sair</button>        
     </header>
-
     <main class="menu-container">
+      <section class="loja-1">
         <a href="./pages/lojas/ortofisius.html" class="btn-P loja-1">
             <i class="fas fa-notes-medical"></i>
             Ortofisi’us
         </a>
+      </section>
+      <section class="loja-2">        
         <a href="./pages/lojas/fisiomedCentro.html" class="btn-P loja-2">
             <i class="fas fa-clinic-medical"></i>
             Fisiomed Centro
         </a>
+      </section>
+      <section class="loja-3">
         <a href="./pages/lojas/fisiomedCamobi.html" class="btn-P loja-3">
             <i class="fas fa-hospital-user"></i>
             Fisiomed Camobi
         </a>
-            <a href="./pages/historicoGeral.html" class="btn-P historico">
-            <i class="fas fa-chart-line"></i>
-            Histórico Geral
+      </section>
+      <section class="historico">
+        <a href="./pages/historicoGeral.html" class="btn-P historico">
+          <i class="fas fa-chart-line"></i>
+           Histórico Geral
         </a>
-        <a href="./pages/dashboard.htm" class="btn-P historico">
-            <i class="fas fa-chart-line"></i>
-            Dashboard
-        </a>     
+      </section >
+      <section class="dashboard">
+        <a href="./pages/dashboard.htm" class="btn-P dashboard">
+          <i class="fas fa-chart-line"></i>
+          Dashboard
+        </a>   
+      </section>  
     </main>
 
     <footer>

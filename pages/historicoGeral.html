@@ -40,27 +40,27 @@
       <div class="filtros">
         <div class="filtros-container">
           <div>
-             <label for="filtro-loja">Loja:</label>
+            <label for="filtro-loja">Loja:</label>
             <select id="filtro-loja">
-            <option value="todas">Todas</option>
-            <option value="faturamento_ortofisius">Ortofisi’us</option>  
-            <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
-            <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
-           </select>  
+              <option value="todas">Todas</option>
+              <option value="faturamento_ortofisius">Ortofisi’us</option>  
+              <option value="faturamento_fisiomed_centro">Fisiomed Centro</option>
+              <option value="faturamento_fisiomed_camobi">Fisiomed Camobi</option>
+            </select>  
           </div>
           <div>
             <label for="filtro-data">Data:</label>
             <input type="date" id="filtro-data">
           </div>
           <div>
-            <button onclick="filtrar()">Filtrar</button>
+            <button onclick="filtrar()" aria-label="filtrar">Filtrar</button>
           </div>
           <div>
-            <button onclick="limparFiltros()">Limpar</button>
+            <button onclick="limparFiltros()" aria-label="limpar">Limpar</button>
           </div>  
         </div>
         <div class="impressao-controls">
-          <button onclick="window.print()" class="btn-imprimir">🖨️ Imprimir Histórico</button>
+          <button onclick="window.print()" class="btn-imprimir" aria-label="Exportar dashboard para PDF">🖨️ Imprimir Histórico</button>
         </div>           
       </div>
     </section>
@@ -70,10 +70,10 @@
       <table>
         <thead>
           <tr>
-            <th>Loja</th>
-            <th>Data</th>
-            <th>Valor</th>
-            <th>Ações</th> 
+            <th scope="col">Loja</th>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Ações</th> 
           </tr>
         </thead>
         <tbody id="tabela-geral"></tbody>
@@ -83,6 +83,9 @@
       <h2>Gráfico Comparativo de Faturamento</h2>
       <p>Visualize o gráfico comparativo de faturamento entre as lojas.</p>      
       <canvas id="graficoFaturamento" width="600" height="300"></canvas>   
+      <p id="descricao-grafico-historico" class="sr-only">
+        Este gráfico de linhas exibe o histórico de faturamento ao longo do tempo. O eixo horizontal representa os períodos de tempo (dias, semanas ou meses, dependendo dos dados), e o eixo vertical representa o valor do faturamento em reais. Uma ou mais linhas no gráfico representam o faturamento de cada loja (ou o faturamento total, dependendo da visualização), permitindo a análise das tendências de faturamento e a comparação do desempenho ao longo do tempo.
+      </p>
     </section>
   </main>
   <footer>

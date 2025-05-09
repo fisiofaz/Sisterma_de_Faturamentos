@@ -38,7 +38,7 @@
     <section class="filtros-exportar">
         <label for="mesFiltro">📅 Filtrar por Mês:</label>
         <input type="month" id="mesFiltro" />
-        <button onclick="exportarPDF()">📄 Exportar PDF</button>
+        <button onclick="exportarPDF()" aria-label="Exportar dashboard para PDF">📄 Exportar PDF </button>
     </section>
     <section class="resumos">
       <div id="destaques-mes">
@@ -61,8 +61,12 @@
       </div>
     </section>  
     <section class="grafico-section">
-      <h2>Grafico de Desempenho</h2>      
+      <h2>Grafico de Desempenho</h2>   
+      <p>Visualize o gráfico comparativo de faturamento entre as lojas.</p>   
       <canvas id="grafico-dashboard"></canvas>
+      <p id="descricao-grafico-dashboard" class="sr-only">
+        Este gráfico de barras apresenta uma comparação do faturamento entre as lojas Ortofisi’us, Fisiomed Centro e Fisiomed Camobi. O eixo horizontal representa as lojas e o eixo vertical representa o valor do faturamento em reais. A altura de cada barra indica o faturamento correspondente de cada loja, permitindo uma comparação visual rápida do desempenho financeiro de cada unidade.
+      </p>
     </section>  
   </main>
   <footer>

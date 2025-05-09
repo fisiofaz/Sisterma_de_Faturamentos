@@ -26,10 +26,9 @@
         <li><a href="../dashboard.htm">Dashboard</a></li>
       </ul>
     </nav>
-  </button>
-  
+  </button>  
   <header>
-    <button id="toggle-theme" title="Alternar tema">🌓</button>
+    <button id="toggle-theme" title="Alternar tema" aria-label="Alternar tema">🌓</button>
     <h1>Faturamento Diário - Ortofisi'us</h1>
     <p>Gerencie os registros de faturamento</p>
   </header>
@@ -39,13 +38,13 @@
       <h2>Registrar Faturamento</h2>
       <p>Preencha os campos abaixo para registrar o faturamento diário.</p>
       <form id="faturamento-form">
-      <label for="data">Data:</label>
-      <input type="date" id="data" required>
+        <label for="data">Data:</label>
+        <input type="date" id="data" required>
 
-      <label for="valor">Valor (R$):</label>
-      <input type="number" id="valor" step="0.01" required>
+        <label for="valor">Valor (R$):</label>
+        <input type="number" id="valor" step="0.01" required>
 
-      <button type="submit">Salvar</button>
+        <button type="submit">Salvar</button>
       </form>
     </section>
     <section class="tabela-section">
@@ -53,9 +52,9 @@
       <table>
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Valor</th>
-            <th>Ações</th>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody id="historico-tabela"></tbody>
