@@ -81,30 +81,3 @@
 .btn-imprimir:hover {
     background-color: #45a049;
 }
-
-  
-/* Impressão */
-@media print {
-  header, #toggle-theme, .filtros, .btn-imprimir, footer {
-    display: none;
-  }
-
-  table {
-    border: 1px solid #000;
-  }
-
-  th, td {
-    border: 1px solid #000;
-    font-size: 12pt;
-  }
-
-  body {
-    background: white;
-    color: black;
-    font-size: 12pt;
-  }
-}
-
- 
-
-

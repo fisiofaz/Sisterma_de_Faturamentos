@@ -4,7 +4,6 @@
 @import url("./index.css");
 @import url("./historicoGeral.css");
 @import url("./login.css");
-
 @import url("./darkTogglePreloader.css");
 @import url("./dashboard.css");
 
@@ -335,39 +334,39 @@ button.excluir::before {
   
 /* Impressão */
 @media print {
-    header, #toggle-theme, .filtros, .btn-imprimir, footer {
+    
+  header, #toggle-theme, .filtros, .btn-imprimir, footer {
       display: none;
-    }
+  }
   
-    table {
+  table {
       border: 1px solid #000;
-    }
+  }
   
-    th, td {
+  th, td {
       border: 1px solid #000;
       font-size: 12pt;
-    }
+  }
   
-    body {
+  body {
       background: white;
       color: black;
       font-size: 12pt;
-    }
+  }
 
-    .nao-imprimir {
+  .nao-imprimir {
       display: none !important;
-    }
+  }
   
-    .para-impressao {
+  .para-impressao {
       /* Estilos específicos para o PDF */
       font-size: 12pt;
-    }
+  }
   
-    .escondido-para-tela {
+  .escondido-para-tela {
       display: block !important;
-    }
+  }  
 }
-
   
 /* Responsividade */
   @media (min-width: 318px) and (max-width: 767px) {        
