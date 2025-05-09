@@ -5,14 +5,14 @@
   box-shadow: 0 0 10px var(--cor-borda);
 }
 
-.login-header h1 {
+.App-main h2 {
   font-size: 3.5rem; 
 }
 
-.login-header p {
+.App-main p {
   font-size: 2rem;
   margin: 0;
-  color: var(--color-text-primario);  
+  color: var(--color-text-terceario);  
 }
 
 .login-header #mensagem-usuario {
@@ -30,8 +30,8 @@
   margin: 0;
 }
 
-.login-container {
-  max-width: 400px;
+.login-form {
+  max-width: 500px;
   margin: 10vh auto;
   padding: 2rem;
   border-radius: 1rem;
@@ -50,7 +50,7 @@
   display: block;
   margin-bottom: 0.3rem;
   font-weight: 600;
-  color: #333;
+  color:var(--color-text-terceario);
   font-size: 1.8rem;
 }
 

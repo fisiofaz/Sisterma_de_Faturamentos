@@ -1,38 +1,441 @@
-.App {
+@import url("./css/reset.css");
+@import url('./css/global.css');
+
+@import url("./css/index.css");
+@import url("./css/historicoGeral.css");
+@import url("./css/login.css");
+@import url("./css/darkTogglePreloader.css");
+@import url("./css/dashboard.css");
+
+
+body {   
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var( --color-bg-primario);
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu {   
+    background: var(--cor-secundaria);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;   
+    position: relative; 
+}
+
+.menu-toggle {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;  
+ 
+  width: 5rem;
+  height: 5rem;
+  height: 30px; 
+  border: none;
+  cursor: pointer;
+    z-index: 1100;
+}
+
+.menu-toggle .bar {
+  display: block;
+  width: 2.5rem;
+  height: 4px;
+  background-color: #0f022e;
+  font-size: 4rem;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.ativo .bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.ativo .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.ativo .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.menu-lateral {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  height: 100vh;
+  width: 250px;
+  background-color: #f4f4f4;
+  padding-top: 60px;
+  transition: left 0.3s ease;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-lateral ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-lateral li {
+  text-decoration: none;
+  margin: 20px 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu-lateral li a {
+  text-decoration: none;
+  color: var(--cor-secundaria);
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.menu-lateral a:hover {
+  background-color: var(--cor-destaque);
+  color: #fff;
+}
+
+.menu-lateral.active {
+  left: 0;
+}
+
+.menu-lateral.aberto {
+  left: 0;
+}
+  
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0;
+    background-color: var(--color-bg-secundario);
+    color: #fff;    
+    text-align: center;
+    z-index: 1000
+} 
+
+header h1 {
+    font-size: 4rem;
+    font-weight: 600;
+}
+
+header p {
+    font-size: 2.2rem;
+    margin-top: 0.5rem;
+    font-weight: 300;
+}
+
+main {
+    padding: 0 1rem;
+}
+
+h2 {
+    margin: 2rem 0;
+    font-size: 2.4rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text-secundario);
+}
+
+main p {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    flex: 1;
+}
+  
+form {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+}
+  
+form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: var(--color-text-secundario);
+    font-size: 1.6rem;
+}
+  
+form input {
+    width: 98%;
+    padding: 1.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+
+select,
+  input[type="date"],
+  button {
+    padding: 1rem 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.6rem;
+}
+  
+  
+button {
+    background-color: var(--color-bg-secundario);
+    color: #fff;
+    border: none;   
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.6rem;
+    width: 100%;
+    transition: background 0.3s ease;
+    height: 4rem;
+}
+ 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: var(--color-bg-primario);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px #ccc;
+}
+
+thead {
+    background-color: #004aad;
+    color: white;
   }
+  
+  th,
+  td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.6rem;
+  }
+  
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+th, td {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+
+tbody .acoes {
+    display: flex;
+    gap: 1rem;
+}
+
+.app-footer {   
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    background-color: var(--color-bg-secundario);
+    color: var(--color-text-primario);   
+    margin-top: 12.5rem;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.app-footer P {
+    font-size: 1.6rem;
+    font-weight: 300;    
+    color: var(--color-text-primario);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #a8dadc;
+    color: #1d3557;
+    padding: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* Estilo base dos botões */
+button {
+  border: none;
+  padding: 6px 10px;
+  margin: 2px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 6px;
+}
+
+/* Ícones modernos com texto opcional */
+button::before {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  display: inline-block;
+  vertical-align: middle;  
+}
+
+
+button[onclick^="editarRegistro"], button[onclick^="excluirRegistro"] {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button[onclick^="editarRegistro"]:hover, button[onclick^="excluirRegistro"]:hover  {
+  
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* Material Icons (opcional se quiser usar ícones do Google Fonts) */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+button.editar::before {
+  content: "edit";
 }
+
+button.excluir::before {
+  content: "delete";
+}
+
+  
+/* Impressão */
+@media print {
+    
+  header, #toggle-theme, .filtros, .btn-imprimir, footer {
+      display: none;
+  }
+  
+  table {
+      border: 1px solid #000;
+  }
+  
+  th, td {
+      border: 1px solid #000;
+      font-size: 12pt;
+  }
+  
+  body {
+      background: white;
+      color: black;
+      font-size: 12pt;
+  }
+
+  .nao-imprimir {
+      display: none !important;
+  }
+  
+  .para-impressao {
+      /* Estilos específicos para o PDF */
+      font-size: 12pt;
+  }
+  
+  .escondido-para-tela {
+      display: block !important;
+  }  
+}
+  
+/* Responsividade */
+  @media (min-width: 318px) and (max-width: 767px) {        
+       
+    #toggle-theme {
+        top: -.5rem;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 2.3rem;
+    }
+
+    main p {
+        font-size: 1.4rem;
+    }
+
+  .menu-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));        
+    }
+
+    .filtros-container {
+      flex-direction: column;
+    }
+    table, th, td {
+      font-size: 1.6rem;
+    }
+  
+    h1 {
+      font-size: 1.4rem;
+    }
+}
+
+  
+@media (max-width: 768px) {       
+    
+    #toggle-theme {
+        top: -.5rem;
+    }
+    header h1 {
+        font-size: 3rem;
+    }
+    main h2 {
+        font-size: 2rem;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 1rem;
+
+    }
+
+    .filtros-container {
+      flex-direction: column;
+    }
+  
+    table, th, td {
+      font-size: 1.2rem;
+    }
+  
+    h1 {
+      font-size: 1.4rem;
+    }
+}
+
