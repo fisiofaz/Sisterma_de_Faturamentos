@@ -314,19 +314,6 @@ export function formatarMoeda(valor) {
   return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
-/**
- * Formata uma data no formato ISO (YYYY-MM-DD) para o formato brasileiro (DD/MM/YYYY).
- * Se a string de entrada não for uma data ISO válida, ela será retornada sem alterações.
- *
- * @param {string} dataISO A data no formato ISO (ex: '2025-05-08').
- * @returns {string} A data formatada no formato brasileiro (ex: '08/05/2025'),
- * ou a string original se não for uma data ISO válida.
- */
-export function formatarDataBR(dataISO) {
-  if (!dataISO || !dataISO.includes("-")) return dataISO;
-  const partes = dataISO.split("-");
-  return partes.length === 3 ? `${partes[2]}/${partes[1]}/${partes[0]}` : dataISO;
-}
 
 /**
  * Obtém os dados armazenados no localStorage para uma chave específica.

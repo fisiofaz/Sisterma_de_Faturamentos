@@ -13,5 +13,13 @@
     --color-text-dark: #eeeeee;
     --cor-secundaria: #264653;
     --cor-destaque: #2a9d8f;
-    --texto-claro: #ffffff;
+    --texto-claro: #ffffff;   
+    --cor-texto-principal: #333;
+    --cor-texto-secundaria: #555;
+    --cor-texto-destaque: #007bff;
+    --cor-destaque: #007bff;
+    --cor-destaque-hover: #0056b3;
+    --cor-borda: #ddd;
 }
+
+  

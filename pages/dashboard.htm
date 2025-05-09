@@ -41,14 +41,30 @@
         <button onclick="exportarPDF()">📄 Exportar PDF</button>
     </section>
     <section class="resumos">
-      <div id="resumo-totais"></div>
-      <div id="destaques-mes"></div>
+      <div id="destaques-mes">
+        <h2>Resumo do Dia/Mês</h2>
+        <div class="destaques-loja">
+          <h3>Ortofisi’us</h3>
+          <p>Total Dia: <span id="ortofisius-total-dia"></span></p>
+          <p><strong>Total Mês:</strong> <span id="ortofisius-total-mes"></span></p>
+        </div>
+        <div class="destaques-loja">
+          <h3>Fisiomed Centro</h3>
+          <p>Total Dia: <span id="fisiomed-centro-total-dia"></span></p>
+          <p><strong>Total Mês:</strong> <span id="fisiomed-centro-total-mes"></span></p>
+        </div>
+        <div class="destaques-loja">
+          <h3>Fisiomed Camobi</h3>
+          <p>Total Dia: <span id="fisiomed-camobi-total-dia"></span></p>
+          <p><strong>Total Mês:</strong> <span id="fisiomed-camobi-total-mes"></span></p>
+        </div>
+      </div>
     </section>  
     <section class="grafico-section">
-      <canvas id="graficoFaturamento"></canvas>
+      <h2>Grafico de Desempenho</h2>      
+      <canvas id="grafico-dashboard"></canvas>
     </section>  
   </main>
-
   <footer>
     <p>© 2025 Sistema de Faturamento - Feito por: Fábio André Zatta</p>
   </footer>

@@ -1,70 +1,103 @@
-main {  
-  margin: 0 2rem;
-  padding: 2rem;
-  font-family: Arial, sans-serif;
-  background: #fff;
+.dashboard-container {  
+  margin: 2rem;
+  padding: 2rem;   
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-main h1 {
+.dashboard-container h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
 
-section {
-  margin-top: 2rem;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-ul li {
-  background: #f4f4f4;
-  margin: 0.5rem 0;
-  padding: 1rem;
-  font-size: 1.5rem;
-  border-left: 5px solid #007bff;
-  border-radius: 6px;
-  font-weight: 500;
-}
-
-canvas {
-  margin-top: 2rem;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-}
-
 .filtros-exportar {
   display: flex;
-  align-items: center;
   gap: 1rem;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
+.filtros-exportar label {
+  font-size: 1.1rem;
+  color: var(--cor-texto-principal);
+}
+
 .filtros-exportar input[type="month"] {
-  padding: 1rem;
-  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 .filtros-exportar button {
-  padding: 0.5rem 1rem;
-  width: 80%;
-  font-size: 1.5rem;
-  background-color: #007bff;
-  color: var(--color-text-primario);
+  background-color: var(--cor-destaque);
+  color: white;
   border: none;
-  border-radius: 6px;
+  padding: 0.75rem 1.2rem;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 .filtros-exportar button:hover {
-  background-color: #0056b3;
+  background-color: var(--cor-destaque-hover);
+}
+
+.resumos { 
+  margin-top: 2rem;
+}
+
+#destaques-mes {  
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;  
+}
+
+#destaques-mes h2 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--cor-destaque);  
+  padding-bottom: 0.5rem;
+}
+
+.destaques-loja {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+}
+
+.destaques-loja h3 {
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--cor-texto-principal);
+}
+
+.destaques-loja p {
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.destaques-loja p #ortofisius-total-mes, 
+.destaques-loja p #fisiomed-centro-total-mes,
+.destaques-loja p #fisiomed-camobi-total-mes {
+  font-weight: 600;
+  color: var(--cor-texto-secundaria);
+}
+
+.destaques-loja p strong {
+  font-weight: 600;
+  color: var(--cor-texto-destaque);
+}
+
+.grafico-section {
+  background-color: var(--cor-fundo-secundaria);
+  padding: 1.5rem;
 }
 
   

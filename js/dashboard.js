@@ -57,16 +57,16 @@ function carregarGraficoDashboard() {
 
 function obterFaturamentoConsolidado() {
   const dadosOrtofisius = obterDados("faturamento_ortofisius").map(item => ({ ...item, loja: "Ortofisi’us" }));
-  const dadosFisiomedCentro = obterDados("faturamento_fisiomedcentro").map(item => ({ ...item, loja: "Fisiomed Centro" }));
-  const dadosFisiomedCamobi = obterDados("faturamento_fisiomedcamobi").map(item => ({ ...item, loja: "Fisiomed Camobi" }));
+  const dadosFisiomedCentro = obterDados("faturamento_fisiomed_centro").map(item => ({ ...item, loja: "Fisiomed Centro" }));
+  const dadosFisiomedCamobi = obterDados("faturamento_fisiomed_camobi").map(item => ({ ...item, loja: "Fisiomed Camobi" }));
   return [...dadosOrtofisius, ...dadosFisiomedCentro, ...dadosFisiomedCamobi];
 }
 
 // Processar totais
 function exibirResumoTotais() {
   const dadosOrtofisius = obterDados("faturamento_ortofisius");
-  const dadosFisiomedCentro = obterDados("faturamento_fisiomedcentro");
-  const dadosFisiomedCamobi = obterDados("faturamento_fisiomedcamobi");
+  const dadosFisiomedCentro = obterDados("faturamento_fisiomed_centro");
+  const dadosFisiomedCamobi = obterDados("faturamento_fisiomed_camobi");
 
   const totalOrtofisius = calcularTotais(dadosOrtofisius);
   const totalCentro = calcularTotais(dadosFisiomedCentro);
@@ -82,7 +82,37 @@ function exibirResumoTotais() {
       <li><strong>💰 Total Geral: ${formatarMoeda(totalGeral)}</strong></li>
     </ul>
   `;
+  // Gráfico
+  const ctx = document.getElementById("graficoFaturamento").getContext("2d");
+  let chart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: ["Ortofisi’us", "Fisiomed Centro", "Fisiomed Camobi"],
+      datasets: [
+        {
+          label: "Faturamento (R$)",
+          data: [totalOrtofisius, totalCentro, totalCamobi],
+          backgroundColor: ["#007bff", "#28a745", "#ffc107"],
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: (ctx) => formatarMoeda(ctx.raw) } },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: { callback: (valor) => formatarMoeda(valor) },
+        },
+      },
+    },
+  });
 }
+
+
 
 // Destaques do mês
 function exibirDestaquesMes() {
@@ -106,34 +136,7 @@ function exibirDestaquesMes() {
   `;
 }
 
-// Gráfico
-const ctx = document.getElementById("graficoFaturamento").getContext("2d");
-let chart = new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: ["Ortofisi’us", "Fisiomed Centro", "Fisiomed Camobi"],
-    datasets: [
-      {
-        label: "Faturamento (R$)",
-        data: [totalOrtofisius, totalCentro, totalCamobi],
-        backgroundColor: ["#007bff", "#28a745", "#ffc107"],
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: { display: false },
-      tooltip: { callbacks: { label: (ctx) => formatarMoeda(ctx.raw) } },
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        ticks: { callback: (valor) => formatarMoeda(valor) },
-      },
-    },
-  },
-});
+
 
 // Atualizar gráfico com novos dados
 function atualizarGrafico(dados) {
@@ -172,11 +175,12 @@ function atualizarDashboard(dados) {
 
 // Filtro por mês
 document.getElementById("mesFiltro").addEventListener("change", (e) => {
-  const mesSelecionado = e.target.value; // yyyy-mm
+  const mesSelecionado = e.target.value;
   if (!mesSelecionado) return;
 
-  const filtrados = faturamento.filter((item) =>
-    item.data.startsWith(mesSelecionado)
+  const todosOsDados = obterFaturamentoConsolidado();
+  const filtrados = todosOsDados.filter((item) =>
+      item.data.startsWith(mesSelecionado)
   );
 
   atualizarDashboard(filtrados);
