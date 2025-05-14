@@ -23,6 +23,10 @@ body {
     position: relative; 
 }
 
+#toggle-theme{
+    align-self: flex-end;
+}
+
 .menu-toggle {
   position: absolute;
   top: 2rem;
