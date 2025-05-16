@@ -1,24 +1,18 @@
 @import url('./global.css');
 
+body.light {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
 body.dark {
     background-color: var(--color-bg-dark);
     color: var(--color-text-dark);
 }
 
-body.dark label,
-body.dark input,
-body.dark select,
-body.dark th,
-body.dark td {    
-    color: var(--color-text-dark);    
-}
-  
-body.dark header,
-body.dark footer,
-body.main,
-body.dark .btn  {
-    background-color: var(--color-bg-dark-2);
-    color: var(--color-text-dark);
+.app-container {
+  position: relative; /* Necessário para posicionar o preloader dentro */
+  min-height: 100vh; /* Garante que o container ocupe a altura total da tela */
 }
 
 #toggle-theme {
@@ -31,27 +25,40 @@ body.dark .btn  {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--color-text-primario);
+    z-index: 1001; /* Acima do menu */
 }  
 
 #preloader {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
-    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+body.dark #preloader {
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo preto semi-transparente para o tema escuro */
 }
   
 .loader {
     border: 8px solid #f3f3f3;
     border-top: 8px solid #1d3557;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 6rem;
+    height: 6rem;
     animation: spin 1s linear infinite;
 }
+
+body.dark .loader {
+  border-color: #333;
+  border-top-color: #eee;
+}
+
   
 @keyframes spin {
     0% { transform: rotate(0deg); }

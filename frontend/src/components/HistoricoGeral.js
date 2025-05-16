@@ -166,7 +166,7 @@ function HistoricoGeral() {
           🌓
         </button>
       </header>
-      <main>
+      <main className="dashboard-container">
         <section className="filtros-section">
           <h2>Filtros</h2>
           <p>Selecione os filtros desejados para visualizar o histórico de faturamentos.</p>

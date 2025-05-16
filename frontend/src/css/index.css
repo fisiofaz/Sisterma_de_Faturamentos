@@ -11,6 +11,10 @@
     text-align: center;  
 }
 
+.loja-1 a, .loja-2 a, .loja-3 a, .historico a, .dashboard a {
+    gap: 1.5rem;
+}
+
 .loja-1 { 
     background-color: #f8c291; /* Ortofisi’us */
 } 

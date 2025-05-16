@@ -23,58 +23,61 @@ body {
     position: relative; 
 }
 
+.menu-lateral {
+  position: fixed; /* Para telas pequenas, sobrepor o conteúdo */
+  top: 0;
+  left: -250px; /* Oculto por padrão */
+  width: 250px;
+  height: 100%;
+  background-color: #f0eaea;
+  color: #f4f4f4;
+  transition: left 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+
+/* Estilo para mostrar o menu quando a classe 'open' é aplicada */
+.menu-lateral.open {
+  left: 0; /* Abre o menu movendo-o para a posição visível */
+}
+
 #toggle-theme{
     align-self: flex-end;
 }
 
 .menu-toggle {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  display: flex;
-  flex-direction: column;  
- 
-  width: 5rem;
-  height: 5rem;
-  height: 30px; 
+  display: block; /* Garante que ele seja visível em dispositivos menores */
+  position: fixed; /* Ou absolute, dependendo do layout */
+  top: 20px;
+  left: 20px;
+  background: none;
   border: none;
   cursor: pointer;
-    z-index: 1100;
+  padding: 10px;
+  z-index: 1001; /* Acima do menu */
 }
 
 .menu-toggle .bar {
   display: block;
-  width: 2.5rem;
-  height: 4px;
-  background-color: #0f022e;
-  font-size: 4rem;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
 }
 
-.menu-toggle.ativo .bar:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+/* Opcional: animações para o botão de alternância ao abrir/fechar */
+.menu-toggle.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
 }
 
-.menu-toggle.ativo .bar:nth-child(2) {
+.menu-toggle.open .bar:nth-child(2) {
   opacity: 0;
 }
 
-.menu-toggle.ativo .bar:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-
-.menu-lateral {
-  position: fixed;
-  top: 0;
-  left: -250px;
-  height: 100vh;
-  width: 250px;
-  background-color: #f4f4f4;
-  padding-top: 60px;
-  transition: left 0.3s ease;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+.menu-toggle.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 .menu-lateral ul {
@@ -103,13 +106,6 @@ body {
   color: #fff;
 }
 
-.menu-lateral.active {
-  left: 0;
-}
-
-.menu-lateral.aberto {
-  left: 0;
-}
   
 header {
     display: flex;
@@ -412,8 +408,28 @@ button.excluir::before {
 }
 
   
-@media (max-width: 768px) {       
-    
+@media (max-width: 768px) {      
+  .menu-toggle {
+    display: none;
+  }
+
+ 
+.menu-toggle {
+  display: flex; /* **MOSTRAR o botão em telas pequenas** */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 3px;
+    height: 2px;
+    background: var(--cor-secundaria);
+  
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: fixed;
+    top: 2px;
+    left: 2px;
+    z-index: 1020;
+}    
     #toggle-theme {
         top: -.5rem;
     }

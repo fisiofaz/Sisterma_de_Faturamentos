@@ -71,3 +71,9 @@
 .btn-imprimir:hover {
     background-color: #45a049;
 }
+
+.grafico-section canvas {
+  max-height: 400px; /* Defina uma altura máxima adequada */
+  width: 100% !important; /* Garante que a largura seja responsiva */
+  height: auto !important; /* Permite que a altura se ajuste dentro do máximo */
+}
