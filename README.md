@@ -89,6 +89,8 @@ Nos históricos, incluir botões:
 
 - Atualizar o localStorage dinamicamente.
 
+- Site: https://github.com/fisiofaz/Sistema_Faturamento_Simples - o projeto inical em HTML, CSS, JS
+
 ## 📌 Funcionalidades da segunda etapa - v.2.0
 
 1. Reafaztoramento do codifo para React
@@ -105,24 +107,24 @@ Nos históricos, incluir botões:
 1. Clone este repositório:
 
 ```
-git clone https://github.com/seuusuario/faturamento-lojas.git
+git clone https://github.com/fisiofaz/Sisterma_de_Faturamentos
 ```
 
 2. Acesse o projeto no VSCode:
 
 ```
-cd faturamento-lojas
-code .
+cd frontend
+npm start
 ```
 
-3. Abra `index.html` ou `lojas/ortofisius.html` em seu navegador
+
 
 ## 📅 Atualizações e Versões
 
 v0.1 – Estrutura inicial + Página Ortofisi'us <br>
 v1.0 - Estrutura basica completa com todas as paginas<br>
 v1.1 - Impressão de relatórios e login de autenticação <br>
-v1.2 - Dashboard Geral com Resumo e Edição e Exclusão dos Registros
-v1.9 - Feito a Acenssebilidade do projeto
-
+v1.2 - Dashboard Geral com Resumo e Edição e Exclusão dos Registros <br>
+v1.9 - Feito a Acenssebilidade do projeto <br>
+v2.0 - Feito o React do Frontend do projeto 
 Desenvolvido com dedicação por Fábio André Zatta 🚀
