@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../App.css'; // Importa o CSS global
+import Preloader from './Preloader'; // Importa o componente de preloader
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faNotesMedical,
@@ -79,12 +80,8 @@ function Inicial() {
   }, [navigate, handleLogout, theme]);
 
   return (
-    <div className={`app-container ${theme}`}> {/* Adiciona uma classe para o container geral */}
-      {isLoading && (
-        <div id="preloader">
-          <div className="loader"></div>
-        </div>
-      )}
+    <div className={`app-container ${theme}`}> 
+      <Preloader isLoading={isLoading} /> 
       <button className="menu-toggle" id="menuToggle" aria-label="Abrir Menu" onClick={toggleMenu}> {/* Adiciona onClick */}
         <span className="bar"></span>
         <span className="bar"></span>

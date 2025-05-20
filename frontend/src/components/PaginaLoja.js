@@ -1,6 +1,7 @@
 // Compoentes Geral das Lojas
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import Preloader from './Preloader'; // Importa o componente de preloader
 import '../App.css'; // Importa o CSS global
 
 function PaginaLoja(props) {
@@ -98,11 +99,7 @@ function PaginaLoja(props) {
 
   return (
     <div className={`app-container ${theme}`}> {/* Adiciona uma classe para o container geral */}
-      {isLoading && (
-        <div id="preloader">
-          <div className="loader"></div>
-        </div>
-      )}
+      <Preloader isLoading={isLoading} />   
       <button className="menu-toggle" id="menuToggle" aria-label="Abrir Menu" onClick={toggleMenu}>
         <span className="bar"></span>
         <span className="bar"></span>

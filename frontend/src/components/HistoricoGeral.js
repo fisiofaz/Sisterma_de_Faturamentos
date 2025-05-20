@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'; // Importamos useRef
 import '../App.css';
+import Preloader from './Preloader'; // Importa o componente de preloader
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine, faPrint } from '@fortawesome/free-solid-svg-icons';
 import { Chart } from 'chart.js/auto';
@@ -136,12 +137,8 @@ function HistoricoGeral() {
   }, [theme]);
 
   return (
-    <div className={`app-container ${theme}`}> {/* Aplica a classe do tema ao div principal */}
-      {isLoading && (
-        <div id="preloader">
-          <div className="loader"></div>
-        </div>
-      )}
+    <div className={`app-container ${theme}`}> 
+      <Preloader isLoading={isLoading} /> 
       <button className="menu-toggle" id="menuToggle" aria-label="Abrir Menu" onClick={toggleMenu}>
         <span className="bar"></span>
         <span className="bar"></span>

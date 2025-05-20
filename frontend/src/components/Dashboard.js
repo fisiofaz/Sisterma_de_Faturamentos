@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
+import Preloader from './Preloader'; // Importa o componente de preloader
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartBar, faFilePdf } from '@fortawesome/free-solid-svg-icons';
 import { Chart } from 'chart.js/auto';
@@ -127,11 +128,7 @@ function Dashboard() {
 
   return (
     <div className={`app-container ${theme}`}> {/* Aplica a classe do tema ao div principal */}
-      {isLoading && (
-        <div id="preloader">
-          <div className="loader"></div>
-        </div>
-      )}
+      <Preloader isLoading={isLoading} /> {/* ADICIONE ISTO */}
       <button className="menu-toggle" id="menuToggle" aria-label="Abrir Menu" onClick={toggleMenu}>
         <span className="bar"></span>
         <span className="bar"></span>
